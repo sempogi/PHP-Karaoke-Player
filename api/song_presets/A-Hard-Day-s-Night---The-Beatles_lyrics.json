@@ -1,0 +1,12 @@
+{
+    "type": "song",
+    "id": "A Hard Day's Night - The Beatles_lyrics",
+    "channels": {
+        "10": {
+            "msb": 1,
+            "lsb": 0,
+            "pg": 32
+        }
+    },
+    "updatedAt": "2025-10-23T12:39:30+00:00"
+}

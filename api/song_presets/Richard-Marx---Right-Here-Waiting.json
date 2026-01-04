@@ -1,0 +1,12 @@
+{
+    "type": "song",
+    "id": "Richard Marx - Right Here Waiting",
+    "channels": {
+        "10": {
+            "msb": 1,
+            "lsb": 0,
+            "pg": 105
+        }
+    },
+    "updatedAt": "2025-10-21T11:04:14+00:00"
+}

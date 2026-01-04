@@ -1,0 +1,12 @@
+{
+    "type": "song",
+    "id": "rihanna-unfaithful_best_version",
+    "channels": {
+        "10": {
+            "msb": 1,
+            "lsb": 0,
+            "pg": 105
+        }
+    },
+    "updatedAt": "2025-10-24T11:57:55+00:00"
+}
