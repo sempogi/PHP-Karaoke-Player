@@ -50,6 +50,7 @@ $fontList=list_files($FONT_DIR,['ttf','otf','woff','woff2']); // NEW: scan fonts
 ?>
 <!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>KaraokeHD Player v6.7.6g+</title>
+
 <style>
 :root{--bg:#0b0b0b;--fg:#e7e7e7;--muted:#9aa0a6;--panel:#151515;--line:#1e1e1e;--accent:#4fd1ff;--hl:#7ef9a7;--tickH:30px;--vizH:160px;--gapH:2px}
 *{box-sizing:border-box}
@@ -175,9 +176,7 @@ main{padding:10px;display:grid;gap:10px}
 #lyFull .line{padding:2px 0}
 #lyFull .line.active{color:var(--hl);font-weight:700}
 
-#lyBody.glow .w.on{ text-shadow:0 0 6px color-mix(in srgb, var(--hl) 85%, transparent),
-                             0 0 14px color-mix(in srgb, var(--hl) 55%, transparent),
-                             0 0 24px color-mix(in srgb, var(--hl) 35%, transparent) }
+
 /* === Highlight Pulse (minimal, crisp, no fades) === */
 
 /* Tunables (optional) */
@@ -299,6 +298,36 @@ main{padding:10px;display:grid;gap:10px}
 #ch16Panel { display: none; }
 #ch16Panel.visible { display: block; }
 
+/* Base word style (optional, keep your existing styles) */
+#lyAct .w {
+  /* fallback text color for unhighlighted words */
+  color: var(--fg, #fff);
+}
+
+/* Fully highlighted past words */
+#lyAct .w.on {
+  color: var(--hl);
+  text-shadow: 0 0 8px var(--hl);
+}
+
+/* Current word with smooth 0–100% fill using --p */
+#lyAct .w.cur {
+  /* We render color by gradient so set text color transparent */
+  color: transparent;
+
+  /* Smooth fill from left → right */
+  background-image: linear-gradient(
+    to right,
+    var(--hl) 0%,
+    var(--hl) var(--p, 0%),
+    currentColor var(--p, 0%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* optional glow emphasis */
+  text-shadow: 0 0 10px var(--hl);
+}
 </style>
 
 <!-- === THEME PRESETS (Quick Color Theme Switch) === -->
@@ -916,7 +945,50 @@ function renderLyricsFull(json){ui.lyFull.innerHTML=''; if(!json||!json.lines||!
 function buildActiveSpans(L){var html=''; for(var i=0;i<(L.words||[]).length;i++){html+='<span class="w">'+escapeHtml(L.words[i].w)+'</span>'; } ui.lyAct.innerHTML=html; ACTIVE_SPANS=[].slice.call(ui.lyAct.querySelectorAll('.w'));
 }
 function renderLyrics(json){lastLyrics=json; lyricsState={lines:json?json.lines:[],idxLine:-1,idxWord:-1}; ensureLyWin(); applyFontScale(); setLyrMode(lyrMode); setLyrGlow(lyrGlow); applyAlign(); if(!json||!json.lines||!json.lines.length){ ui.lyPrev.textContent=''; ui.lyAct.textContent=''; ui.lyNext.textContent=''; ui.lyFull.innerHTML='<div class="small" style="padding:6px;color:#888">No lyrics</div>'; return;} ui.lyPrev.textContent=''; buildActiveSpans(json.lines[0]||{words:[]}); ui.lyNext.innerHTML=escJoin(json.lines[1]); renderLyricsFull(json);} 
-function repaintLyricsTri(now){var json=lastLyrics; if(!json||!json.lines||!json.lines.length) return; var lines=json.lines; var li=-1; for(var i=0;i<lines.length;i++){if(lines[i].main_time<=now) li=i; else break;} if(li<0){ui.lyPrev.innerHTML=''; ui.lyAct.innerHTML=''; ui.lyNext.innerHTML=escJoin(lines[0]); return;} var Lcur=lines[li],Lprev=(li>0)?lines[li-1]:null,Lnext=(li<lines.length-1)?lines[li+1]:null; if(lyricsState.idxLine!==li){ui.lyPrev.innerHTML=escJoin(Lprev); buildActiveSpans(Lcur||{words:[]}); ui.lyNext.innerHTML=escJoin(Lnext); lyricsState.idxLine=li; lyricsState.idxWord=-1;} var wi=-1; var W=(Lcur&&Lcur.words)?Lcur.words:[]; for(var k=0;k<W.length;k++){ if(W[k].t<=now) wi=k; else break;} if(wi!==lyricsState.idxWord){ for(var j=0;j<ACTIVE_SPANS.length;j++){ ACTIVE_SPANS[j].classList.toggle('on', j<=wi);} lyricsState.idxWord=wi; }}
+function repaintLyricsTri(now){var json=lastLyrics; if(!json||!json.lines||!json.lines.length) return; var lines=json.lines; var li=-1; for(var i=0;i<lines.length;i++){if(lines[i].main_time<=now) li=i; else break;} if(li<0){ui.lyPrev.innerHTML=''; ui.lyAct.innerHTML=''; ui.lyNext.innerHTML=escJoin(lines[0]); return;} var Lcur=lines[li],Lprev=(li>0)?lines[li-1]:null,Lnext=(li<lines.length-1)?lines[li+1]:null; if(lyricsState.idxLine!==li){ui.lyPrev.innerHTML=escJoin(Lprev); buildActiveSpans(Lcur||{words:[]}); ui.lyNext.innerHTML=escJoin(Lnext); lyricsState.idxLine=li; lyricsState.idxWord=-1;} var wi=-1; var W=(Lcur&&Lcur.words)?Lcur.words:[]; for(var k=0;k<W.length;k++){ if(W[k].t<=now) wi=k; else break;} // Compute progress across the current word (0..1)
+var HOLD = 0.25; // seconds to hold the last word if no next timestamp
+var tStart = null, tEnd = null;
+
+if (wi >= 0) {
+  tStart = W[wi].t;
+  if (wi < W.length - 1) {
+    // Next word exists → end at next word start
+    tEnd = W[wi + 1].t;
+  } else {
+    // Last word → use next line start if available, otherwise a small hold
+    tEnd = (Lnext && typeof Lnext.main_time === 'number')
+      ? Lnext.main_time
+      : (tStart + HOLD);
+  }
+}
+
+var prog = 0;
+if (tStart != null && tEnd != null) {
+  var span = Math.max(0.001, tEnd - tStart); // guard against zero/negative
+  prog = (now - tStart) / span;
+  if (prog < 0) prog = 0;
+  if (prog > 1) prog = 1;
+}
+
+// Repaint only if line changed or word index changed
+if (lyricsState.idxWord !== wi || lyricsState.idxLine !== li) {
+  // Clear state and re‑apply cumulative highlight up to (but NOT including) current word
+  ACTIVE_SPANS.forEach(function(s){
+    s.classList.remove('on', 'cur');
+    s.style.removeProperty('--p');
+  });
+  for (var j = 0; j < wi; j++) {
+    if (ACTIVE_SPANS[j]) ACTIVE_SPANS[j].classList.add('on');
+  }
+  lyricsState.idxWord = wi;
+}
+
+// Always update the current word’s progress, even if idx unchanged this frame
+if (wi >= 0 && ACTIVE_SPANS[wi]) {
+  var curSpan = ACTIVE_SPANS[wi];
+  curSpan.classList.add('cur');
+  curSpan.style.setProperty('--p', (prog * 100).toFixed(1) + '%');
+}}
 function updateLyricsView(now){ if(lyrMode==='tri'){repaintLyricsTri(now); return;} if(!lastLyrics||!lastLyrics.lines||!lastLyrics.lines.length) return; var lines=lastLyrics.lines; var li=-1; for(var i=0;i<lines.length;i++){if(lines[i].main_time<=now) li=i; else break;} if(li<0)return; var host=ui.lyFull; var el=host.children[li]; if(el){ el.classList.add('active'); var prev=host.querySelector('.active'); if(prev&&prev!==el) prev.classList.remove('active'); try{ el.scrollIntoView({block:'nearest',behavior:'smooth'});}catch(e){ el.scrollIntoView({block:'nearest'});} } lyricsState.idxLine=li; }
 function startLyricsClock(){cancelAnimationFrame(rafLyrics); (function t(){var cur=isPlaying?(ac.currentTime-songStart):0; updateLyricsView(cur); rafLyrics=requestAnimationFrame(t);})();}
 /*!
@@ -2540,7 +2612,7 @@ var APP_VERSION = <?php echo json_encode($APP_VERSION, JSON_UNESCAPED_SLASHES|JS
 })();
 </script>
 <script src="info_dock_karaoke_live_v1.0.0.js"></script>
-<script src="healing_toggle.js"></script>
+
 <script>
   // Wait until DOM is ready (the script is deferred, so DOM is loaded)
   const ui = healingFX.mount('#heal-toggle'); // if #heal-toggle isn't found, it falls back to <body>
