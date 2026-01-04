@@ -1,0 +1,18 @@
+.lyrics {
+  position: relative;
+  height: 42vh;
+  overflow: auto;
+  padding: 8px 12px;
+  scroll-behavior: smooth;
+  font: 18px/1.6 system-ui, Arial, sans-serif;
+  background: #121212;
+  color: #aaa;
+  border-radius: 8px;
+}
+.lyric-line { margin: 4px 0; white-space: pre-wrap; }
+.lyric-line.active { color: #fff; font-weight: 600; }
+.lyric-line .w { transition: color .08s linear; }
+.lyric-line .w.active { color: #4fd1ff; }
+#timebar { font: 14px/1.3 monospace; margin: 8px 0 10px; color: #ddd; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+button { font: inherit; padding: 6px 10px; }

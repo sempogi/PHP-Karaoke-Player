@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KaraokeHD MIDI Editor v3.13.6 — Create/Rewrite Lyric Track • STRICT Hyphen • Floating Preview • Audio • Drag/Resize • Smart Save • Robust Loader • Preserve Hyphens</title>
+<style>
+  :root{--bg:#0f1420;--fg:#e6edf6;--muted:#9fbad1;--accent:#00b3ff;--card:#0d1828;--border:#24344e;--word:#0f1626;--active:#00e0ff;--done:#7bc3d6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
+  header{padding:12px 14px;border-bottom:1px solid var(--border);background:#0c111b}
+  h1{margin:0;font-size:18px}
+  small{color:#9fbad1}
+  #top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px;border-bottom:1px solid var(--border);background:#0c111b;position:sticky;top:0;z-index:10}
+  .file{border:1px dashed #33507a;background:#0c1625;padding:6px 8px;border-radius:8px;cursor:pointer;display:inline-block}
+  input[type=file]{display:none}
+  .btn{background:#122136;border:1px solid #2a3a55;color:var(--fg);padding:8px 12px;border-radius:8px;cursor:pointer}
+  .btn.primary{background:var(--accent);color:#001019;border-color:#0ea5d3;font-weight:600}
+  .btn.toggler.active{background:#0ea5d3;color:#001019}
+  .stat{color:#9fbad1;font-size:12px}
+  select,input{background:#0c1625;color:#e6edf6;border:1px solid #2a3a55;border-radius:8px;padding:6px}
+  #status{white-space:pre-wrap;color:#b6c9dc;background:#0b1424;border:1px solid #20324d;border-radius:10px;padding:8px;margin:10px}
+  .wrap{display:grid;grid-template-columns:1fr;gap:12px;padding:12px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px}
+  .cardhead{padding:8px 10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+  .cardtitle{color:#9fbad1;font-size:14px}
+  .cardbody{padding:10px}
+  .pill{display:inline-block;background:#0e2137;border:1px solid #2a3a55;color:#9fbad1;border-radius:999px;padding:4px 8px;margin-right:6px}
+  #raw{width:100%;min-height:360px;border:1px solid #20324d;border-radius:8px;background:#0a1320;color:#cfe2f2;padding:12px;font:14px/1.6 ui-monospace,Consolas,Menlo,monospace}
+
+  .floatwin{position:fixed;min-width:260px;min-height:160px;max-width:80vw;max-height:80vh;background:#0a1320;border:1px solid #20324d;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.35);z-index:2;overflow:hidden}
+  .floathead{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-bottom:1px solid #20324d;background:#0c1625;border-radius:10px 10px 0 0;cursor:grab;user-select:none;touch-action:none}
+  .floathead:active{cursor:grabbing}
+  .floattitle{color:#9fbad1;font-size:13px}
+  .floatbody{padding:10px;height:calc(100% - 44px);overflow:auto}
+  .resize-handle{position:absolute;width:16px;height:16px;right:6px;bottom:6px;border:1px solid #33507a;border-radius:3px;background:#0c1625;cursor:nwse-resize;touch-action:none}
+
+  #karaokeWinBody{font-size:24px;line-height:1.9}
+  .word{padding:4px 6px;border-radius:8px;background:var(--word);margin:0 4px;display:inline-block}
+  .word .sub{display:inline-block}
+  .word .sub.active{background:linear-gradient(to bottom, rgba(0,224,255,.22), rgba(0,224,255,.22)); border-radius:6px}
+  .word .sub.done{background:linear-gradient(to bottom, rgba(0,224,255,.10), rgba(0,224,255,.10)); border-radius:6px; opacity:.85}
+
+  #tokensWinBody{font:12px/1.5 ui-monospace,Consolas,Menlo,monospace;color:#cfe2f2}
+  .tok{display:flex;gap:8px;align-items:center;padding:4px;border-bottom:1px dashed #22324a}
+  .tok .idx{color:#7fa4c4;width:80px}
+  .tok .txt{flex:1;white-space:pre-wrap;background:#0e1a2a;padding:3px 6px;border-radius:6px}
+  .tok .ms{color:#89b0ce;width:80px;text-align:right}
+  .tok .tick{color:#89b0ce;width:70px;text-align:right}
+  .tok.active{outline:1px solid var(--active); background:#0a1f2f}
+  .tok.done{opacity:.7}
+
+  #overlay{position:fixed;right:12px;bottom:12px;background:#0a1320;border:1px solid #20324d;color:#e6f0ff;padding:6px 10px;border-radius:8px;font:12px/1.4 ui-monospace,Consolas,Menlo,monospace;opacity:.9;z-index:9}
+
+  #options{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .chk{display:inline-flex;align-items:center;gap:6px;color:#9fbad1}
+</style>
+</head>
+<body>
+<header>
+  <h1>KaraokeHD MIDI Editor v3.13.6 — Create/Rewrite Lyric Track • STRICT Hyphen • Floating Preview • Audio • Drag/Resize • Smart Save • Robust Loader • Preserve Hyphens</h1>
+  <small>Raw textbox is <b>never rewritten</b> during Apply/Save. Hyphens are preserved by default. Use '-' to split syllables. Placeholders start each line with '\\'.</small>
+</header>
+
+<div id="top">
+  <label class="file" for="mid">📂 Load MIDI/KAR</label>
+  <input id="mid" type="file" accept=".mid,.kar,application/octet-stream,audio/midi" />
+  <label class="file" for="sf2">🎹 Load SoundFont (.sf2)</label>
+  <input id="sf2" type="file" accept=".sf2" />
+  <button id="play" class="btn primary" disabled>▶️ Play</button>
+  <button id="pause" class="btn" disabled>⏸️ Pause</button>
+  <button id="stop" class="btn" disabled>⏹️ Stop</button>
+  <button id="step" class="btn" disabled>➡️ Step</button>
+  <span class="stat">Lyric track <select id="trackSel"></select></span>
+  <button id="apply" class="btn" disabled>Apply (STRICT)</button>
+  <button id="save" class="btn primary" disabled>💾 Save</button>
+  <span id="counts" class="stat">—</span>
+  <button id="toggleKaraoke" class="btn toggler" disabled>🪄 Karaoke Preview</button>
+  <button id="toggleTokens" class="btn toggler" disabled>🔤 Tokens</button>
+  <button id="createLyric" class="btn primary" style="display:none">➕ Create Lyric Track</button>
+  <span class="stat" id="chanWrap" style="display:none">Channel 
+    <select id="channelSel">
+      <option value="">—</option>
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+      <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+      <option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option>
+    </select>
+  </span>
+  <div id="options">
+    <label class="chk"><input type="checkbox" id="preserveHyphens" checked> Preserve hyphens (no auto-normalize)</label>
+    <label class="chk"><input type="checkbox" id="recomposeRaw" > Allow Raw recomposition (advanced)</label>
+  </div>
+</div>
+
+<div id="status">Place <code>libfluidsynth-*.js</code> + matching <code>.wasm</code> and <code>js-synthesizer.js</code> beside this HTML to enable audio playback. Editor and save work without audio.</div>
+<div id="overlay" style="display:none"></div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="cardhead"><div class="cardtitle">Raw lyrics — STRICT hyphen (selected/new track)</div><div>
+      <span class="pill" id="pillEmb">embedded: 0</span>
+      <span class="pill" id="pillTyped">typed: 0</span>
+      <span class="pill" id="pillDelta">Δ 0</span>
+    </div></div>
+    <div class="cardbody">
+      <textarea id="raw" placeholder="Use '-' to split syllables. Hyphens are preserved. Double hyphens are NOT auto-normalized unless you enable the option."></textarea>
+    </div>
+  </div>
+</div>
+
+<div id="winKaraoke" class="floatwin" style="left:12px;bottom:66px;width:40vw;height:38vh;display:none">
+  <div class="floathead" data-win="winKaraoke">
+    <div class="floattitle">Karaoke Preview (current line)</div>
+    <div><button class="btn" onclick="hideWin('winKaraoke')">✖</button></div>
+  </div>
+  <div id="karaokeWinBody" class="floatbody">—</div>
+  <div class="resize-handle" data-win="winKaraoke"></div>
+</div>
+
+<div id="winTokens" class="floatwin" style="left:calc(100vw - 12px - 40vw);bottom:66px;width:40vw;height:38vh;display:none">
+  <div class="floathead" data-win="winTokens">
+    <div class="floattitle">Tokens (current line)</div>
+    <div><button class="btn" onclick="hideWin('winTokens')">✖</button></div>
+  </div>
+  <div id="tokensWinBody" class="floatbody">—</div>
+  <div class="resize-handle" data-win="winTokens"></div>
+</div>
+
+<script>
+// ===== Optional JSSynth loader (audio optional)
+function loadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=()=>rej(new Error('Failed to load '+src)); document.head.appendChild(s); }); }
+(async function tryLoadSynth(){ const status=document.getElementById('status'); try{
+  const candidates=['libfluidsynth-2.4.6.js','libfluidsynth-2.4.6-with-libsndfile.js','libfluidsynth-2.3.0.js','libfluidsynth-2.3.0-with-libsndfile.js','libfluidsynth-2.2.1.js'];
+  let ok=false; for(const c of candidates){ try{ await loadScript(c); ok=true; break; }catch(e){} }
+  if(!ok) status.textContent += '\n(Playback optional) libfluidsynth-*.js not found here.';
+  try{ await loadScript('js-synthesizer.js'); if(window.JSSynth && JSSynth.waitForReady){ await JSSynth.waitForReady(); status.textContent += '\nFluidSynth (WASM) ready.'; } }catch(e){ status.textContent += '\njs-synthesizer.js not found; audio features disabled.'; }
+}catch(e){ status.textContent += '\nSynth init error: '+e.message; } })();
+
+// ===== Robust text decoder
+const decUtf8=new TextDecoder('utf-8');
+function decodeText(payload){ try{ return decUtf8.decode(payload); }catch(e){ return Array.from(payload).map(c=>String.fromCharCode(c)).join(''); } }
+const enc=new TextEncoder();
+function readBE32(u8,o){ return (u8[o]<<24)|(u8[o+1]<<16)|(u8[o+2]<<8)|u8[o+3]; }
+function readBE16(u8,o){ return (u8[o]<<8)|u8[o+1]; }
+function readVLQ(u8,o){ let v=0,b=0; while(true){ const c=u8[o+b++]; v=(v<<7)|(c&0x7F); if((c&0x80)===0) break; } return {value:v,bytes:b}; }
+function writeVLQ(v){ let a=[v&0x7F]; while((v>>=7)) a.unshift((v&0x7F)|0x80); return new Uint8Array(a); }
+const U8=a=>new Uint8Array(a);
+
+// ===== Parse SMF (with offsets)
+function parseSMF(bytes){
+  if(String.fromCharCode(bytes[0],bytes[1],bytes[2],bytes[3])!=='MThd') throw new Error('Missing MThd');
+  const hLen=readBE32(bytes,4); const format=(bytes[8]<<8)|bytes[9]; const nTracks=(bytes[10]<<8)|bytes[11]; const division=(bytes[12]<<8)|bytes[13];
+  let pos=8+hLen; const tracks=[];
+  for(let ti=0; ti<nTracks; ti++){
+    if(String.fromCharCode(bytes[pos],bytes[pos+1],bytes[pos+2],bytes[pos+3])!=='MTrk') throw new Error('Track '+ti+': missing MTrk');
+    const tLen=readBE32(bytes,pos+4); const tStart=pos; const dStart=pos+8; let p=dStart; const dEnd=p+tLen; let tick=0; const events=[]; let run=null;
+    while(p<dEnd){ const d=readVLQ(bytes,p); const deltaStart=p; p+=d.bytes; tick+=d.value; let status=bytes[p]; if(status<0x80){ if(run===null) throw new Error('Running status without previous'); status=run; } else { status=bytes[p++]; run=status; }
+      if(status===0xFF){ const typeOffset=p; const type=bytes[p++]; const ln=readVLQ(bytes,p); const lenStart=p; p+=ln.bytes; const ds=p, de=p+ln.value; const payload=bytes.slice(ds,de);
+        let text, data; if(type===0x01||type===0x05){ text=decodeText(payload); } if(type===0x51 && payload.length===3){ data=[payload[0],payload[1],payload[2]]; }
+        events.push({kind:'meta',tick,type,text,data, offsetDeltaStart:deltaStart, offsetMetaType:typeOffset, offsetLenStart:lenStart, offsetData:ds, track:ti}); p=de; run=null; }
+      else if((status&0xF0)===0xF0){ if(status===0xF0||status===0xF7){ const ln=readVLQ(bytes,p); p+=ln.bytes+ln.value; } }
+      else { const t=status&0xF0; const ch=status&0x0F; let d1=bytes[p++]; let d2=null; if(t!==0xC0 && t!==0xD0){ d2=bytes[p++]; } events.push({kind:'midi',tick,type:t,ch,d1,d2,status,track:ti}); }
+    }
+    tracks.push({ti,events,tStart,dStart,dEnd}); pos=dEnd;
+  }
+  return {format,nTracks,division,tracks,bytes};
+}
+
+// ===== Timeline
+function buildTimeline(smf){ const tpq=smf.division; const tempos=[]; for(const tr of smf.tracks){ for(const e of tr.events){ if(e.kind==='meta'&&e.type===0x51&&e.data){ const usPerQN=(e.data[0]<<16)|(e.data[1]<<8)|e.data[2]; tempos.push({tick:e.tick,usPerQN}); } } } if(tempos.length===0||tempos[0].tick>0) tempos.unshift({tick:0,usPerQN:500000}); tempos.sort((a,b)=>a.tick-b.tick); function tickToMs(T){ let ms=0; for(let i=0;i<tempos.length;i++){ const cur=tempos[i]; const next=tempos[i+1]?.tick ?? T; const segEnd=Math.min(next,T); if(segEnd<=cur.tick) break; const segTicks=segEnd-cur.tick; ms += segTicks*(cur.usPerQN/1000)/tpq; if(segEnd===T) break; } return ms; } return {tpq,tempos,tickToMs}; }
+
+// ===== Notes
+function buildNoteEvents(smf, tl){ const arr=[]; for(const tr of smf.tracks){ for(const e of tr.events){ if(e.kind==='midi' && e.type===0x90 && e.d2 && e.d2>0){ arr.push({tick:e.tick, ms:tl.tickToMs(e.tick), ch:e.ch, track:tr.ti}); } } } arr.sort((a,b)=>a.tick-b.tick); return arr; }
+
+// ===== State
+const state={ smf:null, tl:null, trackLyrics:new Map(), selectedTrack:null, lineIdxMap:new Map(), wordGroups:new Map(), noteEvents:[], newLyricTrackId:null, playing:false, startTS:0, pauseAccum:0, idx:0, timer:null, synth:null, audioCtx:null, audioNode:null, prependBackslash:false, dirty:false };
+
+// ===== Collect lyrics per track (0x05 lyric + 0x01 text)
+function collectLyricsPerTrack(smf, tl){ const map=new Map(); for(const tr of smf.tracks){ const arr=[]; for(const e of tr.events){ if(e.kind==='meta' && (e.type===0x05 || e.type===0x01)){ const t = (typeof e.text==='string')? e.text : ''; const isCtrl=(t==='/'||t==='\n'||t==='\r'); const trailing=isCtrl?false: t.endsWith(' '); const text = isCtrl? undefined : (trailing? t.slice(0,-1):t); arr.push({tick:e.tick, ms:tl.tickToMs(e.tick), text, trailing, control:isCtrl, controlText:isCtrl? t:undefined}); } } if(arr.length) map.set(tr.ti, arr); } return map; }
+
+// ===== Lines per track
+function buildLinesForTrack(trackId){ const L = state.trackLyrics.get(trackId)||[]; const lines=[]; let cur=[]; for(let i=0;i<L.length;i++){ const e=L[i]; if(e.control){ if(cur.length) lines.push(cur); cur=[]; continue; } cur.push(i); } if(cur.length) lines.push(cur); state.lineIdxMap.set(trackId, lines); }
+
+// ===== Compose Raw (Initial only)
+function composeRawInitial(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const lines=state.lineIdxMap.get(trackId)||[]; const out=[]; for(const line of lines){ let s=''; if(state.prependBackslash && trackId===state.newLyricTrackId){ s+='\\'; } for(let j=0;j<line.length;j++){ const ev=L[line[j]]; if(ev.control) continue; const t=ev.text||''; s+=t; if(ev.trailing) s+=' '; const nextIdx=line[j+1]; if(typeof nextIdx!=='undefined'){ const nxt=L[nextIdx]; if(nxt && !nxt.control){ const currEndsSpace=/\s$/.test(t) || ev.trailing; if(!currEndsSpace) s+='-'; } } } out.push(s); } document.getElementById('raw').value = out.join('\n'); updateCounts(); updatePreviews(); }
+
+// ===== Extract syllables (strip leading '\\' per line)
+function extractSyllables(){ const preserve = document.getElementById('preserveHyphens').checked; const lines=document.getElementById('raw').value.split(/\r?\n/); const arr=[]; for(let line of lines){ if(line.length===0) continue; line = line.replace(/^\\/, ''); if(!preserve){ line = line.replace(/--+/g, '- '); } let buf=''; const tokens=line.match(/\S+|\s+/g)||[]; for(const t of tokens){ if(/\s+/.test(t)){ if(buf){ let parts=buf.split(/-+/).filter(p=>p.length>0); if(parts.length){ parts[parts.length-1]+=t; } arr.push(...parts); buf=''; } else { arr.push(t); } } else { buf+=t; } } if(buf){ const parts=buf.split(/-+/).filter(p=>p.length>0); arr.push(...parts); } } return arr; }
+
+// ===== Karaoke groups (token-level)
+function buildKaraokeGroups(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const lines=state.lineIdxMap.get(trackId)||[]; state.wordGroups.clear(); for(const line of lines){ const startIdx=line[0]; const groups=[]; for(const idx of line){ const ev=L[idx]; if(ev.control) continue; groups.push({word:(ev.text||''), parts:[(ev.text||'')], tokenStart:idx, tokenCount:1}); } state.wordGroups.set(startIdx, groups); } }
+
+function currentLineStart(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; let i=state.idx; while(i>0 && !L[i-1].control) i--; return i; }
+
+function updateKaraokeWin(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const el=document.getElementById('karaokeWinBody'); if(!L.length){ el.textContent='—'; return; } const start=currentLineStart(); const groups=state.wordGroups.get(start)||[]; el.innerHTML=''; for(const g of groups){ const w=document.createElement('span'); w.className='word'; for(const part of g.parts){ const s=document.createElement('span'); s.className='sub'; s.textContent=part; w.appendChild(s); } el.appendChild(w); } applyHighlights(); }
+
+function updateTokensWin(){ const trackId=state.selectedTrack; const L=state.trackLyrics.get(trackId)||[]; const el=document.getElementById('tokensWinBody'); if(!L.length){ el.textContent='—'; return; } const start=currentLineStart(); const items=[]; let j=start; while(j<L.length && !L[j].control){ items.push(L[j]); j++; } el.innerHTML=''; items.forEach((ev)=>{ const row=document.createElement('div'); row.className='tok'; const idxEl=document.createElement('span'); idxEl.className='idx'; idxEl.textContent=`tick:${ev.tick}`; const txt=document.createElement('span'); txt.className='txt'; txt.textContent=(ev.text||'') + (ev.trailing?' ':''); const ms=document.createElement('span'); ms.className='ms'; ms.textContent=(ev.ms?.toFixed?.(2)||'0.00')+' ms'; const tk=document.createElement('span'); tk.className='tick'; tk.textContent=ev.tick+' tk'; row.appendChild(idxEl); row.appendChild(txt); row.appendChild(ms); row.appendChild(tk); el.appendChild(row); }); applyHighlights(); }
+
+function applyHighlights(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const start=currentLineStart(); const groups=state.wordGroups.get(start)||[]; const strip=document.getElementById('karaokeWinBody'); const rows=[...document.getElementById('tokensWinBody').querySelectorAll('.tok')];
+  for(let gi=0; gi<groups.length; gi++){ const g=groups[gi]; const wordEl=strip.children[gi]; if(!wordEl) continue; const subs=wordEl.querySelectorAll('.sub'); subs.forEach(s=>s.classList.remove('active','done')); if(state.idx>g.tokenStart){ subs.forEach(s=>s.classList.add('done')); } else if(state.idx===g.tokenStart){ if(subs[0]) subs[0].classList.add('active'); } }
+  rows.forEach(r=>r.classList.remove('active','done')); for(let gi=0; gi<groups.length; gi++){ const g=groups[gi]; const row = rows[gi]; if(!row) continue; if(state.idx>g.tokenStart){ row.classList.add('done'); } else if(state.idx===g.tokenStart){ row.classList.add('active'); } }
+}
+
+function updatePreviews(){ if(document.getElementById('winKaraoke').style.display!=='none') updateKaraokeWin(); if(document.getElementById('winTokens').style.display!=='none') updateTokensWin(); }
+
+function updateCounts(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const embedded = L.filter(x=>!x.control).length; const typed = extractSyllables().length; document.getElementById('pillEmb').textContent='embedded: '+embedded; document.getElementById('pillTyped').textContent='typed: '+typed; document.getElementById('pillDelta').textContent='Δ '+(typed-embedded); document.getElementById('apply').disabled = (typed!==embedded || !state.smf); document.getElementById('save').disabled = !state.smf; }
+
+// ===== Apply STRICT (does NOT rewrite Raw)
+function applyStrict(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const embCount = L.filter(x=>!x.control).length; const syl = extractSyllables(); if(syl.length!==embCount){ document.getElementById('status').textContent=`STRICT apply blocked: typed=${syl.length} != embedded=${embCount}`; return; } let k=0; for(const it of L){ if(it.control) continue; const seg=syl[k++]||''; const m=seg.match(/^(.*?)(\s+)$/); if(m){ it.text=m[1]; it.trailing=true; } else { it.text=seg; it.trailing=false; } } state.dirty=false; document.getElementById('status').textContent='STRICT apply: mapped 1:1 (Raw preserved).'; buildKaraokeGroups(); updateCounts(); updatePreviews(); }
+
+// ===== Smart reconcile (does NOT rewrite Raw)
+function reconcileTypedIntoTrack(){ const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const syl = extractSyllables(); const targetCount = L.filter(x=>!x.control).length; let k=0; for(const it of L){ if(it.control) continue; const seg = (k<syl.length)? (syl[k++]||'') : ''; const m=seg.match(/^(.*?)(\s+)$/); if(m){ it.text=m[1]; it.trailing=true; } else { it.text=seg; it.trailing=false; } } const diff = syl.length - targetCount; if(diff>0){ document.getElementById('status').textContent += `\nSmart Save: truncated ${diff} extra syllable(s). Raw preserved.`; } else if(diff<0){ document.getElementById('status').textContent += `\nSmart Save: padded ${-diff} missing syllable(s) with empty text. Raw preserved.`; } buildKaraokeGroups(); updateCounts(); updatePreviews(); }
+
+// ===== Create Lyric Track from channel
+function createLyricTrackFromChannel(){ const sel=document.getElementById('channelSel'); const v=sel.value; if(!v){ document.getElementById('status').textContent='Select a channel (1–16).'; return; } const ch = parseInt(v,10)-1; const notes = state.noteEvents.filter(n=>n.ch===ch); if(notes.length===0){ document.getElementById('status').textContent='No Note On events on channel '+(ch+1); return; }
+  const gapTicks = state.tl.tpq; const arr=[]; const linesIdx=[]; let curLine=[]; let lastTick=null;
+  for(const n of notes){ if(lastTick!=null && (n.tick - lastTick) >= gapTicks){ if(curLine.length){ linesIdx.push(curLine.slice()); curLine=[]; } }
+    arr.push({tick:n.tick, ms:n.ms, text:'la', trailing:false, control:false}); curLine.push(arr.length-1); lastTick=n.tick; }
+  if(curLine.length) linesIdx.push(curLine);
+  const newTrackId = state.smf.nTracks; state.newLyricTrackId = newTrackId; state.trackLyrics.set(newTrackId, arr); state.selectedTrack = newTrackId; state.lineIdxMap.set(newTrackId, linesIdx);
+  state.prependBackslash = true; const selTrack=document.getElementById('trackSel'); selTrack.innerHTML=''; const opt=document.createElement('option'); opt.value=String(newTrackId); opt.textContent=`New Lyric Track (tokens=${arr.length})`; selTrack.appendChild(opt);
+  document.getElementById('status').textContent = `New lyric track created from channel ${ch+1}. Edit Raw (each line starts with "\\"), then Apply & Save.`;
+  composeRawInitial(); buildKaraokeGroups(); updatePreviews(); document.getElementById('apply').disabled=false; document.getElementById('save').disabled=false; document.getElementById('toggleKaraoke').disabled=false; document.getElementById('toggleTokens').disabled=false; }
+
+// ===== Save: append NEW lyric track OR rewrite existing selected lyric track
+function readVLQAgain(u8,o){ let v=0,b=0; while(true){ const c=u8[o+b++]; v=(v<<7)|(c&0x7F); if((c&0x80)===0) break; } return {value:v,bytes:b}; }
+
+function rewriteSelectedTrack(){ const trackId=state.selectedTrack; const smf=state.smf; const tr=smf.tracks[trackId]; if(!tr) throw new Error('Invalid track'); const L = state.trackLyrics.get(trackId)||[]; const payloads = L.map(ev=> ev.control? (ev.controlText||'/') : ((ev.text||'') + (ev.trailing?' ':'')) );
+  const evIndex=[]; for(const e of tr.events){ if(e.kind==='meta'&&(e.type===0x01||e.type===0x05)){ const lenVal = readVLQAgain(smf.bytes, e.offsetLenStart).value; evIndex.push({ offsetDeltaStart:e.offsetDeltaStart - tr.dStart, offsetMetaType:e.offsetMetaType - tr.dStart, offsetLenStart:e.offsetLenStart - tr.dStart, offsetData:e.offsetData - tr.dStart, dataLen: lenVal }); } }
+  if(evIndex.length!==payloads.length){ throw new Error(`Rewrite aborted: events=${evIndex.length} payloads=${payloads.length}`); }
+  const original=smf.bytes.slice(tr.dStart,tr.dEnd); const chunks=[]; let srcPos=0; for(let i=0;i<evIndex.length;i++){ const ev=evIndex[i]; if(ev.offsetDeltaStart>srcPos){ chunks.push(original.slice(srcPos, ev.offsetDeltaStart)); srcPos=ev.offsetDeltaStart; } const headerUntilType=original.slice(ev.offsetDeltaStart, ev.offsetMetaType+1); const dataBytes=enc.encode(payloads[i]||''); const lenVLQ=writeVLQ(dataBytes.length); chunks.push(headerUntilType, lenVLQ, dataBytes); srcPos=ev.offsetData+ev.dataLen; }
+  if(srcPos<original.length) chunks.push(original.slice(srcPos)); let total=0; for(const c of chunks) total+=c.length; const rebuilt=new Uint8Array(total); let p=0; for(const c of chunks){ rebuilt.set(c,p); p+=c.length; }
+  const outParts=[ state.smf.bytes.slice(0,14) ]; for(const T of smf.tracks){ if(T.ti===trackId){ const newTrack=new Uint8Array(8+rebuilt.length); newTrack.set(U8([77,84,114,107]),0); newTrack[4]=(rebuilt.length>>>24)&0xFF; newTrack[5]=(rebuilt.length>>>16)&0xFF; newTrack[6]=(rebuilt.length>>>8)&0xFF; newTrack[7]=rebuilt.length&0xFF; newTrack.set(rebuilt,8); outParts.push(newTrack); } else { outParts.push(smf.bytes.slice(T.tStart, T.dEnd)); } }
+  let total2=0; for(const a of outParts) total2+=a.length; const merged=new Uint8Array(total2); let p2=0; for(const a of outParts){ merged.set(a,p2); p2+=a.length; }
+  return merged; }
+
+function buildNewLyricTrackBytes(){ const trackId = state.selectedTrack; if(trackId !== state.newLyricTrackId) throw new Error('Selected is not the new lyric track'); const L = state.trackLyrics.get(trackId)||[]; L.sort((a,b)=>a.tick-b.tick); let lastTick=0; const parts=[]; for(const ev of L){ const delta = ev.tick - lastTick; lastTick = ev.tick; parts.push(writeVLQ(delta)); parts.push(U8([0xFF,0x05])); const payload = enc.encode((ev.text||'') + (ev.trailing?' ':'')); parts.push(writeVLQ(payload.length)); parts.push(payload); } parts.push(writeVLQ(0)); parts.push(U8([0xFF,0x2F,0x00])); let size=0; for(const p of parts) size+=p.length; const body=new Uint8Array(size); let pos=0; for(const p of parts){ body.set(p,pos); pos+=p.length; } const out=new Uint8Array(8+body.length); out.set(U8([77,84,114,107]),0); out[4]=(body.length>>>24)&0xFF; out[5]=(body.length>>>16)&0xFF; out[6]=(body.length>>>8)&0xFF; out[7]=body.length&0xFF; out.set(body,8); return out; }
+
+function saveFile(){ if(!state.smf) return; try{
+  const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const embCount=L.filter(x=>!x.control).length; const typed=extractSyllables().length;
+  if(typed!==embCount){ reconcileTypedIntoTrack(); } else if(state.dirty){ applyStrict(); }
+  let blob; if(state.newLyricTrackId!=null && trackId===state.newLyricTrackId){ const newTrackBytes = buildNewLyricTrackBytes(); const smf=state.smf; const header=new Uint8Array(14); header.set(U8([77,84,104,100]),0); header.set(U8([0x00,0x00,0x00,0x06]),4); header[8]=(smf.format>>>8)&0xFF; header[9]=smf.format&0xFF; const newN=smf.nTracks+1; header[10]=(newN>>>8)&0xFF; header[11]=newN&0xFF; header[12]=(smf.division>>>8)&0xFF; header[13]=smf.division&0xFF; const parts=[header]; for(const tr of smf.tracks){ parts.push(smf.bytes.slice(tr.tStart, tr.dEnd)); } parts.push(newTrackBytes); let total=0; for(const p of parts) total+=p.length; const out=new Uint8Array(total); let pos=0; for(const p of parts){ out.set(p,pos); pos+=p.length; } blob = new Blob([out],{type:'audio/midi'}); document.getElementById('status').textContent += '\nSaved: appended NEW lyric track. Raw preserved.'; }
+  else { const out = rewriteSelectedTrack(); blob = new Blob([out],{type:'audio/midi'}); document.getElementById('status').textContent += '\nSaved: rewritten selected lyric track. Raw preserved.'; }
+  const a=document.createElement('a'); const url=URL.createObjectURL(blob); a.href=url; a.download = (state.newLyricTrackId!=null && trackId===state.newLyricTrackId)? 'created_lyric_track.mid' : 'rewritten_lyric_track.mid'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),0);
+  }catch(err){ document.getElementById('status').textContent='Save error: '+err.message; }
+}
+
+// ===== Audio
+async function ensureSynth(){ if(state.synth) return; if(!window.JSSynth) throw new Error('JSSynth not loaded'); state.audioCtx = new (window.AudioContext||window.webkitAudioContext)(); state.synth = new JSSynth.Synthesizer(); state.synth.init(state.audioCtx.sampleRate); state.audioNode = state.synth.createAudioNode(state.audioCtx, 8192); state.audioNode.connect(state.audioCtx.destination); }
+async function startAudioFrom(ms){ await ensureSynth(); try{ await state.synth.stopPlayer?.(); }catch{} try{ await state.synth.addSMFDataToPlayer(state.smf.bytes.buffer); if(typeof state.synth.seekPlayer==='function') await state.synth.seekPlayer(ms); await state.synth.playPlayer(); }catch(err){ document.getElementById('status').textContent += '\nSynth play error: '+err.message; } }
+function schedule(){ if(!state.playing) return; const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; const now=performance.now(); const elapsed=(now - state.startTS - state.pauseAccum); while(state.idx<L.length && (L[state.idx].ms) <= elapsed){ if(!L[state.idx].control){ applyHighlights(); } state.idx++; } updateOverlay(); if(state.idx>=L.length){ stop(); return; } const target=L[state.idx].ms; const delay=Math.max(0, target - elapsed); clearTimeout(state.timer); state.timer=setTimeout(()=>{ if(!L[state.idx].control){ applyHighlights(); } state.idx++; schedule(); }, delay); }
+async function play(){ if(!state.smf||state.selectedTrack==null) return; if(state.playing) return; state.playing=true; state.startTS=performance.now(); schedule(); try{ await startAudioFrom(state.pauseAccum||0); }catch(err){} }
+function pause(){ if(!state.playing) return; state.playing=false; clearTimeout(state.timer); state.pauseAccum += performance.now() - state.startTS; try{ state.synth?.stopPlayer?.(); }catch{} }
+function stop(){ clearTimeout(state.timer); state.playing=false; state.startTS=0; state.pauseAccum=0; state.idx=0; applyHighlights(); try{ state.synth?.stopPlayer?.(); }catch{} }
+function step(){ pause(); if(!state.smf||state.selectedTrack==null) return; const L = state.trackLyrics.get(state.selectedTrack)||[]; if(state.idx>=L.length) return; if(!L[state.idx].control){ applyHighlights(); } state.idx++; updateOverlay(); }
+function updateOverlay(){ const o=document.getElementById('overlay'); const trackId=state.selectedTrack; const L = state.trackLyrics.get(trackId)||[]; if(!L.length){ o.style.display='none'; return; } o.style.display='block'; const i=Math.min(state.idx, L.length-1); const total=L.filter(x=>!x.control).length; const cur=L[i]; const ms=cur? cur.ms.toFixed(2):0; o.textContent=`idx=${i}/${total} • ms=${ms}`; }
+
+// ===== Drag/Resize
+(function(){ let active=null; let zCounter=100; function bringToFront(win){ win.style.zIndex=(++zCounter).toString(); } function clamp(v,min,max){ return Math.min(Math.max(v,min),max); } function onHeadDown(e){ const id=e.currentTarget.dataset.win; const win=document.getElementById(id); bringToFront(win); const r=win.getBoundingClientRect(); active={win,mode:'drag',startX:e.clientX,startY:e.clientY,startLeft:r.left,startTop:r.top,startW:r.width,startH:r.height}; win.setPointerCapture?.(e.pointerId); } function onHandleDown(e){ const id=e.currentTarget.dataset.win; const win=document.getElementById(id); bringToFront(win); const r=win.getBoundingClientRect(); active={win,mode:'resize',startX:e.clientX,startY:e.clientY,startLeft:r.left,startTop:r.top,startW:r.width,startH:r.height}; win.setPointerCapture?.(e.pointerId); e.stopPropagation(); } function onMove(e){ if(!active) return; const vw=window.innerWidth, vh=window.innerHeight; if(active.mode==='drag'){ const dx=e.clientX-active.startX, dy=e.clientY-active.startY; let L=clamp(active.startLeft+dx, 4, vw-active.startW-4); let T=clamp(active.startTop +dy, 4, vh-active.startH-4); active.win.style.left=L+'px'; active.win.style.top=T+'px'; active.win.style.right='auto'; active.win.style.bottom='auto'; } else { const dx=e.clientX-active.startX, dy=e.clientY-active.startY; let W=clamp(active.startW+dx, 240, vw-active.startLeft-10); let H=clamp(active.startH+dy, 140, vh-active.startTop -10); active.win.style.width=W+'px'; active.win.style.height=H+'px'; } } function onUp(e){ if(active){ try{ active.win.releasePointerCapture?.(e.pointerId); }catch{} active=null; } } document.querySelectorAll('.floathead').forEach(h=>h.addEventListener('pointerdown',onHeadDown)); document.querySelectorAll('.resize-handle').forEach(h=>h.addEventListener('pointerdown',onHandleDown)); window.addEventListener('pointermove',onMove); window.addEventListener('pointerup',onUp); })();
+
+// ===== UI Wiring
+const midEl=document.getElementById('mid'); const sf2El=document.getElementById('sf2');
+midEl.addEventListener('change', async (e)=>{ const f=e.target.files[0]; if(!f) return; const ab=await f.arrayBuffer(); const u8=new Uint8Array(ab); const status=document.getElementById('status'); try{ const smf=parseSMF(u8); const tl=buildTimeline(smf); state.smf=smf; state.tl=tl; status.textContent=`Parsed: format=${smf.format}, tracks=${smf.nTracks}, TPQ=${smf.division}`; state.trackLyrics = collectLyricsPerTrack(smf, tl); const report=[]; for(const tr of smf.tracks){ const cnt=tr.events.filter(e=>e.kind==='meta'&&(e.type===0x05||e.type===0x01)).length; report.push(`T${tr.ti}: meta text/lyric=${cnt}`); }
+  status.textContent += '\n' + report.join(' • ');
+  state.noteEvents = buildNoteEvents(smf, tl);
+  const sel=document.getElementById('trackSel'); sel.innerHTML=''; const ids=[...state.trackLyrics.keys()].sort((a,b)=>a-b); if(ids.length===0){ status.textContent += '\nNo lyric/text meta found. Choose a channel and click Create Lyric Track.'; document.getElementById('createLyric').style.display='inline-block'; document.getElementById('chanWrap').style.display='inline'; document.getElementById('toggleKaraoke').disabled=false; document.getElementById('toggleTokens').disabled=false; document.getElementById('save').disabled=false; document.getElementById('play').disabled=false; document.getElementById('pause').disabled=false; document.getElementById('stop').disabled=false; document.getElementById('step').disabled=false; return; }
+  ids.forEach(id=>{ const cnt=state.trackLyrics.get(id).filter(x=>!x.control).length; const opt=document.createElement('option'); opt.value=String(id); opt.textContent=`Track ${id} (tokens=${cnt})`; sel.appendChild(opt); }); state.selectedTrack=ids[0]; buildLinesForTrack(state.selectedTrack); composeRawInitial(); buildKaraokeGroups(); updatePreviews(); document.getElementById('play').disabled=false; document.getElementById('pause').disabled=false; document.getElementById('stop').disabled=false; document.getElementById('step').disabled=false; document.getElementById('save').disabled=false; document.getElementById('toggleKaraoke').disabled=false; document.getElementById('toggleTokens').disabled=false; updateCounts(); }catch(err){ status.textContent='Parse error: '+err.message; }});
+
+document.getElementById('trackSel').addEventListener('change',(e)=>{ state.selectedTrack=parseInt(e.target.value,10); buildLinesForTrack(state.selectedTrack); composeRawInitial(); buildKaraokeGroups(); updatePreviews(); updateCounts(); stop(); });
+
+sf2El.addEventListener('change', async (e)=>{ const f=e.target.files[0]; if(!f) return; const status=document.getElementById('status'); try{ await ensureSynth(); const ab=await f.arrayBuffer(); await state.synth.loadSFont(ab); status.textContent += `\nLoaded SoundFont: ${f.name}`; }catch(err){ status.textContent += '\nSF2 load error: '+err.message; }
+});
+
+// Textarea input (preserve hyphens by default)
+document.getElementById('raw').addEventListener('input', ()=>{ state.dirty=true; if(document.getElementById('recomposeRaw').checked){ composeRawInitial(); } else { updateCounts(); updatePreviews(); } });
+
+document.getElementById('apply').addEventListener('click', ()=>{ try{ applyStrict(); }catch(err){ document.getElementById('status').textContent='Apply error: '+err.message; } });
+
+document.getElementById('save').addEventListener('click', saveFile);
+
+document.getElementById('createLyric').addEventListener('click', createLyricTrackFromChannel);
+
+['play','pause','stop','step'].forEach(id=>{ document.getElementById(id).addEventListener('click',()=>{ ({play,pause,stop,step})[id](); updateOverlay(); updatePreviews(); }); });
+
+function hideWin(id){ document.getElementById(id).style.display='none'; const btn = (id==='winKaraoke')? document.getElementById('toggleKaraoke') : document.getElementById('toggleTokens'); btn.classList.remove('active'); }
+function showWin(id){ document.getElementById(id).style.display='block'; const btn = (id==='winKaraoke')? document.getElementById('toggleKaraoke') : document.getElementById('toggleTokens'); btn.classList.add('active'); }
+
+document.getElementById('toggleKaraoke').addEventListener('click',()=>{ const v=document.getElementById('winKaraoke').style.display!=='none'; if(v){ hideWin('winKaraoke'); } else { showWin('winKaraoke'); updateKaraokeWin(); } });
+document.getElementById('toggleTokens').addEventListener('click',()=>{ const v=document.getElementById('winTokens').style.display!=='none'; if(v){ hideWin('winTokens'); } else { showWin('winTokens'); updateTokensWin(); } });
+</script>
+</body>
+</html>

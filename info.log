@@ -1,0 +1,1824 @@
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 16:57:21
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173727576064
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 43940
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759157841.244334
+SERVER:REQUEST_TIME: 1759157841
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 17:03:40
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173723779072
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_PURPOSE: prefetch
+SERVER:HTTP_SEC_PURPOSE: prefetch;prerender
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 46958
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759158220.9805479
+SERVER:REQUEST_TIME: 1759158220
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 17:04:35
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173718974464
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/info.php
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: t=1759158275942
+SERVER:REQUEST_URI: /info.php?t=1759158275942
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 47088
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759158275.9839909
+SERVER:REQUEST_TIME: 1759158275
+SERVER:argv: ["t=1759158275942"]
+SERVER:argc: 1
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 19:22:17
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173651693568
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_PURPOSE: prefetch
+SERVER:HTTP_SEC_PURPOSE: prefetch;prerender
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 40230
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759166537.408901
+SERVER:REQUEST_TIME: 1759166537
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 19:24:36
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173636128768
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_PURPOSE: prefetch
+SERVER:HTTP_SEC_PURPOSE: prefetch;prerender
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 40290
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759166676.1009991
+SERVER:REQUEST_TIME: 1759166676
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 19:35:15
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173652267008
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_PURPOSE: prefetch
+SERVER:HTTP_SEC_PURPOSE: prefetch;prerender
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 37820
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759167315.649807
+SERVER:REQUEST_TIME: 1759167315
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 20:32:48
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173628383232
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_PURPOSE: prefetch
+SERVER:HTTP_SEC_PURPOSE: prefetch;prerender
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 48988
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759170768.5324359
+SERVER:REQUEST_TIME: 1759170768
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-09-29 20:32:51
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 173628354560
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~yp7ftx9FhqP2K6O0EW4WUg==/ru.kslabs.ksweb-2QE8mv8kBdayABYJxHGtJw==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/info.php
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: t=1759170771557
+SERVER:REQUEST_URI: /info.php?t=1759170771557
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 48988
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1759170771.5812941
+SERVER:REQUEST_TIME: 1759170771
+SERVER:argv: ["t=1759170771557"]
+SERVER:argc: 1
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-10 11:43:22
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 160014622720
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Linux"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?0
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CACHE_CONTROL: max-age=0
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 44808
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1760089402.76091
+SERVER:REQUEST_TIME: 1760089402
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-10 11:43:30
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 160014557184
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Linux"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?0
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CACHE_CONTROL: max-age=0
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 44808
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1760089410.1880109
+SERVER:REQUEST_TIME: 1760089410
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 09:28:40
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157474832384
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 37978
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761204520.155441
+SERVER:REQUEST_TIME: 1761204520
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 09:30:05
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157473943552
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 38016
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761204605.7040441
+SERVER:REQUEST_TIME: 1761204605
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 09:35:10
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157561737216
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 38140
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761204910.782964
+SERVER:REQUEST_TIME: 1761204910
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 09:36:26
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157561364480
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 38178
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761204986.793901
+SERVER:REQUEST_TIME: 1761204986
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 09:36:29
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157561360384
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/info.php
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: t=1761204989586
+SERVER:REQUEST_URI: /info.php?t=1761204989586
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 38178
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761204989.6002779
+SERVER:REQUEST_TIME: 1761204989
+SERVER:argv: ["t=1761204989586"]
+SERVER:argc: 1
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 10:16:33
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157521469440
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 39916
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761207393.3256421
+SERVER:REQUEST_TIME: 1761207393
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-23 14:29:15
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 157308080128
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 45738
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761222555.201081
+SERVER:REQUEST_TIME: 1761222555
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-24 13:47:35
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 161704198144
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/index.php
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 37668
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761306455.2632329
+SERVER:REQUEST_TIME: 1761306455
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-24 13:48:00
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 161704140800
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/info.php
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: t=1761306480709
+SERVER:REQUEST_URI: /info.php?t=1761306480709
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 37676
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761306480.720814
+SERVER:REQUEST_TIME: 1761306480
+SERVER:argv: ["t=1761306480709"]
+SERVER:argc: 1
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-10-24 17:19:45
+PHP Version: 8.2.6
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midisnd
+Script Path: /storage/emulated/0/htdocs/midisnd/info.php
+Current Dir: /storage/emulated/0/htdocs/midisnd
+Disk Total: 242051149824
+Disk Free: 161500721152
+ini:memory_limit: 128M
+ini:upload_max_filesize: 1024M
+ini:post_max_size: 1024M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/miui.services.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.permission/javalib/service-permission.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 23
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~OIWHzAyZ6Tf--Zanry7aJg==/ru.kslabs.ksweb-AgiiKa9Eo4hVxWLjZ7WtZA==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/tcmiface.jar:/system/framework/telephony-ext.jar:/system/framework/qcom.fmradio.jar:/system/framework/QPerformance.jar:/system/framework/UxPerformance.jar:/system/framework/WfdCommon.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.ondevicepersonalization/javalib/framework-ondevicepersonalization.jar:/apex/com.android.os.statsd/javalib/framework-statsd.jar:/apex/com.android.permission/javalib/framework-permission.jar:/apex/com.android.permission/javalib/framework-permission-s.jar:/apex/com.android.scheduling/javalib/framework-scheduling.jar:/apex/com.android.sdkext/javalib/framework-sdkextensions.jar:/apex/com.android.tethering/javalib/framework-connectivity.jar:/apex/com.android.tethering/javalib/framework-connectivity-t.jar:/apex/com.android.tethering/javalib/framework-tethering.jar:/apex/com.android.wifi/javalib/framework-wifi.jar
+SERVER:ANDROID_SOCKET_usap_pool_primary: 24
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_SEC_FETCH_DEST: document
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: none
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_SEC_PURPOSE: prefetch;prerender
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midisnd
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midisnd/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 40334
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1761319185.4995949
+SERVER:REQUEST_TIME: 1761319185
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-11-28 10:40:01
+PHP Version: 8.3.21
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midi
+Script Path: /storage/emulated/0/htdocs/midi/info.php
+Current Dir: /storage/emulated/0/htdocs/midi
+Disk Total: 516559962112
+Disk Free: 283601387520
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/apprecovery.proinstaller.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.compos/javalib/service-compos.jar:/apex/com.android.configinfrastructure/javalib/service-configinfrastructure.jar:/apex/com.android.healthfitness/javalib/service-healthfitness.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.ondevicepersonalization/javalib/service-ondevicepersonalization.jar:/apex/com.android.permission/javalib/service-permission.jar:/apex/com.android.rkpd/javalib/service-rkp.jar:/apex/com.android.virt/javalib/service-virtualization.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 30
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.btservices/javalib/service-bluetooth.jar:/apex/com.android.devicelock/javalib/service-devicelock.jar:/apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.profiling/javalib/service-profiling.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.uwb/javalib/service-uwb.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/framework-location.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/system_ext/framework/miui-enterprise-sdk.jar:/system_ext/framework/mediatek-telephony-base.jar:/system_ext/framework/mediatek-telephony-common.jar:/system_ext/framework/mediatek-carrier-config-manager.jar:/system_ext/framework/mediatek-common.jar:/system_ext/framework/mediatek-framework.jar:/system_ext/framework/mediatek-ims-common.jar:/system_ext/framework/mediatek-ims-base.jar:/system_ext/framework/mediatek-telecom-common.jar:/system_ext/framework/vendor.xiaomi.hardware.videoservice-V4-java.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~CY_DEIrnA4duAcOFX7b8aQ==/ru.kslabs.ksweb-vkDBxvi1C_42a_JrD5tLKg==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/framework-location.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/system_ext/framework/miui-enterprise-sdk.jar:/system_ext/framework/mediatek-telephony-base.jar:/system_ext/framework/mediatek-telephony-common.jar:/system_ext/framework/mediatek-carrier-config-manager.jar:/system_ext/framework/mediatek-common.jar:/system_ext/framework/mediatek-framework.jar:/system_ext/framework/mediatek-ims-common.jar:/system_ext/framework/mediatek-ims-base.jar:/system_ext/framework/mediatek-telecom-common.jar:/system_ext/framework/vendor.xiaomi.hardware.videoservice-V4-java.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.btservices/javalib/framework-bluetooth.jar:/apex/com.android.configinfrastructure/javalib/framework-configinfrastructure.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.devicelock/javalib/framework-devicelock.jar:/apex/com.android.healthfitness/javalib/framework-healthfitness.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-pdf-v.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.nfcservices/javalib/framework-nfc.jar:/apex/com.android....(truncated)
+SERVER:ANDROID_SOCKET_usap_pool_primary: 31
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midi
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midi/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 37220
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1764322801.4399819
+SERVER:REQUEST_TIME: 1764322801
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-11-30 16:49:04
+PHP Version: 8.3.21
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midi
+Script Path: /storage/emulated/0/htdocs/midi/info.php
+Current Dir: /storage/emulated/0/htdocs/midi
+Disk Total: 516559962112
+Disk Free: 285179686912
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/apprecovery.proinstaller.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.compos/javalib/service-compos.jar:/apex/com.android.configinfrastructure/javalib/service-configinfrastructure.jar:/apex/com.android.healthfitness/javalib/service-healthfitness.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.ondevicepersonalization/javalib/service-ondevicepersonalization.jar:/apex/com.android.permission/javalib/service-permission.jar:/apex/com.android.rkpd/javalib/service-rkp.jar:/apex/com.android.virt/javalib/service-virtualization.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 30
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:FIRST_STAGE_SNAPUSERD_PID: 437
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:FIRST_STAGE_SNAPUSERD_INFO: socket
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.btservices/javalib/service-bluetooth.jar:/apex/com.android.devicelock/javalib/service-devicelock.jar:/apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.profiling/javalib/service-profiling.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.uwb/javalib/service-uwb.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/framework-location.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/system_ext/framework/miui-enterprise-sdk.jar:/system_ext/framework/mediatek-telephony-base.jar:/system_ext/framework/mediatek-telephony-common.jar:/system_ext/framework/mediatek-carrier-config-manager.jar:/system_ext/framework/mediatek-common.jar:/system_ext/framework/mediatek-framework.jar:/system_ext/framework/mediatek-ims-common.jar:/system_ext/framework/mediatek-ims-base.jar:/system_ext/framework/mediatek-telecom-common.jar:/system_ext/framework/vendor.xiaomi.hardware.videoservice-V4-java.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~CY_DEIrnA4duAcOFX7b8aQ==/ru.kslabs.ksweb-vkDBxvi1C_42a_JrD5tLKg==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/framework-location.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/system_ext/framework/miui-enterprise-sdk.jar:/system_ext/framework/mediatek-telephony-base.jar:/system_ext/framework/mediatek-telephony-common.jar:/system_ext/framework/mediatek-carrier-config-manager.jar:/system_ext/framework/mediatek-common.jar:/system_ext/framework/mediatek-framework.jar:/system_ext/framework/mediatek-ims-common.jar:/system_ext/framework/mediatek-ims-base.jar:/system_ext/framework/mediatek-telecom-common.jar:/system_ext/framework/vendor.xiaomi.hardware.videoservice-V4-java.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.btservices/javalib/framework-bluetooth.jar:/apex/com.android.configinfrastructure/javalib/framework-configinfrastructure.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.devicelock/javalib/framework-devicelock.jar:/apex/com.android.healthfitness/javalib/framework-healthfitness.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-pdf-v.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.nfcservices/javalib/framework-nfc.jar:/apex/com.android....(truncated)
+SERVER:ANDROID_SOCKET_usap_pool_primary: 31
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/index.php
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midi
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midi/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 50210
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1764517744.066196
+SERVER:REQUEST_TIME: 1764517744
+SERVER:argv: []
+SERVER:argc: 0
+============================
+
+=== SERVER INFO SNAPSHOT ===
+Timestamp: 2025-11-30 16:49:47
+PHP Version: 8.3.21
+PHP SAPI: cgi-fcgi
+OS: Linux
+Server Software: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+Document Root: /storage/emulated/0/htdocs/midi
+Script Path: /storage/emulated/0/htdocs/midi/info.php
+Current Dir: /storage/emulated/0/htdocs/midi
+Disk Total: 516559962112
+Disk Free: 285142237184
+ini:memory_limit: 128M
+ini:upload_max_filesize: 32M
+ini:post_max_size: 32M
+ini:max_execution_time: 720
+ini:error_log: /data/user/0/ru.kslabs.ksweb/components/log/php/php.log
+ini:session.save_path: /data/data/ru.kslabs.ksweb/components/php/session
+SERVER:SYSTEMSERVERCLASSPATH: /system/framework/com.android.location.provider.jar:/system/framework/services.jar:/system_ext/framework/miui-services.jar:/system_ext/framework/apprecovery.proinstaller.jar:/apex/com.android.adservices/javalib/service-adservices.jar:/apex/com.android.adservices/javalib/service-sdksandbox.jar:/apex/com.android.appsearch/javalib/service-appsearch.jar:/apex/com.android.art/javalib/service-art.jar:/apex/com.android.compos/javalib/service-compos.jar:/apex/com.android.configinfrastructure/javalib/service-configinfrastructure.jar:/apex/com.android.healthfitness/javalib/service-healthfitness.jar:/apex/com.android.media/javalib/service-media-s.jar:/apex/com.android.ondevicepersonalization/javalib/service-ondevicepersonalization.jar:/apex/com.android.permission/javalib/service-permission.jar:/apex/com.android.rkpd/javalib/service-rkp.jar:/apex/com.android.virt/javalib/service-virtualization.jar
+SERVER:PATH: /product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+SERVER:ANDROID_SOCKET_zygote: 30
+SERVER:ANDROID_I18N_ROOT: /apex/com.android.i18n
+SERVER:FIRST_STAGE_SNAPUSERD_PID: 437
+SERVER:ANDROID_DATA: /data
+SERVER:ASEC_MOUNTPOINT: /mnt/asec
+SERVER:ANDROID_TZDATA_ROOT: /apex/com.android.tzdata
+SERVER:EXTERNAL_STORAGE: /sdcard
+SERVER:ANDROID_BOOTLOGO: 1
+SERVER:ANDROID_ASSETS: /system/app
+SERVER:FIRST_STAGE_SNAPUSERD_INFO: socket
+SERVER:TMPDIR: /data/user/0/ru.kslabs.ksweb/tmp
+SERVER:ANDROID_STORAGE: /storage
+SERVER:STANDALONE_SYSTEMSERVER_JARS: /apex/com.android.btservices/javalib/service-bluetooth.jar:/apex/com.android.devicelock/javalib/service-devicelock.jar:/apex/com.android.os.statsd/javalib/service-statsd.jar:/apex/com.android.profiling/javalib/service-profiling.jar:/apex/com.android.scheduling/javalib/service-scheduling.jar:/apex/com.android.tethering/javalib/service-connectivity.jar:/apex/com.android.uwb/javalib/service-uwb.jar:/apex/com.android.wifi/javalib/service-wifi.jar
+SERVER:DEX2OATBOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/framework-location.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/system_ext/framework/miui-enterprise-sdk.jar:/system_ext/framework/mediatek-telephony-base.jar:/system_ext/framework/mediatek-telephony-common.jar:/system_ext/framework/mediatek-carrier-config-manager.jar:/system_ext/framework/mediatek-common.jar:/system_ext/framework/mediatek-framework.jar:/system_ext/framework/mediatek-ims-common.jar:/system_ext/framework/mediatek-ims-base.jar:/system_ext/framework/mediatek-telecom-common.jar:/system_ext/framework/vendor.xiaomi.hardware.videoservice-V4-java.jar:/apex/com.android.i18n/javalib/core-icu4j.jar
+SERVER:LD_LIBRARY_PATH: /data/app/~~CY_DEIrnA4duAcOFX7b8aQ==/ru.kslabs.ksweb-vkDBxvi1C_42a_JrD5tLKg==/lib/arm64/:$LD_LIBRARY_PATH
+SERVER:ANDROID_ART_ROOT: /apex/com.android.art
+SERVER:ANDROID_ROOT: /system
+SERVER:PHP_FCGI_CHILDREN: 4
+SERVER:DOWNLOAD_CACHE: /data/cache
+SERVER:PHP_FCGI_MAX_REQUESTS: 10000
+SERVER:BOOTCLASSPATH: /apex/com.android.art/javalib/core-oj.jar:/apex/com.android.art/javalib/core-libart.jar:/apex/com.android.art/javalib/okhttp.jar:/apex/com.android.art/javalib/bouncycastle.jar:/apex/com.android.art/javalib/apache-xml.jar:/system/framework/framework.jar:/system/framework/framework-graphics.jar:/system/framework/framework-location.jar:/system/framework/ext.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system_ext/framework/miui-framework.jar:/system_ext/framework/miui-telephony-common.jar:/system_ext/framework/miui-enterprise-sdk.jar:/system_ext/framework/mediatek-telephony-base.jar:/system_ext/framework/mediatek-telephony-common.jar:/system_ext/framework/mediatek-carrier-config-manager.jar:/system_ext/framework/mediatek-common.jar:/system_ext/framework/mediatek-framework.jar:/system_ext/framework/mediatek-ims-common.jar:/system_ext/framework/mediatek-ims-base.jar:/system_ext/framework/mediatek-telecom-common.jar:/system_ext/framework/vendor.xiaomi.hardware.videoservice-V4-java.jar:/apex/com.android.i18n/javalib/core-icu4j.jar:/apex/com.android.adservices/javalib/framework-adservices.jar:/apex/com.android.adservices/javalib/framework-sdksandbox.jar:/apex/com.android.appsearch/javalib/framework-appsearch.jar:/apex/com.android.btservices/javalib/framework-bluetooth.jar:/apex/com.android.configinfrastructure/javalib/framework-configinfrastructure.jar:/apex/com.android.conscrypt/javalib/conscrypt.jar:/apex/com.android.devicelock/javalib/framework-devicelock.jar:/apex/com.android.healthfitness/javalib/framework-healthfitness.jar:/apex/com.android.ipsec/javalib/android.net.ipsec.ike.jar:/apex/com.android.media/javalib/updatable-media.jar:/apex/com.android.mediaprovider/javalib/framework-mediaprovider.jar:/apex/com.android.mediaprovider/javalib/framework-pdf.jar:/apex/com.android.mediaprovider/javalib/framework-pdf-v.jar:/apex/com.android.mediaprovider/javalib/framework-photopicker.jar:/apex/com.android.nfcservices/javalib/framework-nfc.jar:/apex/com.android....(truncated)
+SERVER:ANDROID_SOCKET_usap_pool_primary: 31
+SERVER:HTTP_COOKIE: [REDACTED]
+SERVER:HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.9,fil;q=0.8
+SERVER:HTTP_ACCEPT_ENCODING: gzip, deflate, br, zstd
+SERVER:HTTP_REFERER: http://localhost:8001/
+SERVER:HTTP_SEC_FETCH_DEST: iframe
+SERVER:HTTP_SEC_FETCH_USER: ?1
+SERVER:HTTP_SEC_FETCH_MODE: navigate
+SERVER:HTTP_SEC_FETCH_SITE: same-origin
+SERVER:HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+SERVER:HTTP_USER_AGENT: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36
+SERVER:HTTP_UPGRADE_INSECURE_REQUESTS: 1
+SERVER:HTTP_SEC_CH_UA_PLATFORM: "Android"
+SERVER:HTTP_SEC_CH_UA_MOBILE: ?1
+SERVER:HTTP_SEC_CH_UA: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"
+SERVER:HTTP_CONNECTION: keep-alive
+SERVER:HTTP_HOST: localhost:8001
+SERVER:SERVER_PROTOCOL: HTTP/1.1
+SERVER:REDIRECT_STATUS: 200
+SERVER:REQUEST_METHOD: GET
+SERVER:QUERY_STRING: 
+SERVER:REQUEST_URI: /info.php
+SERVER:DOCUMENT_ROOT: /storage/emulated/0/htdocs/midi
+SERVER:SCRIPT_FILENAME: /storage/emulated/0/htdocs/midi/info.php
+SERVER:PATH_INFO: 
+SERVER:SCRIPT_NAME: /info.php
+SERVER:REMOTE_ADDR: 127.0.0.1
+SERVER:REMOTE_PORT: 36000
+SERVER:SERVER_ADDR: 127.0.0.1
+SERVER:SERVER_PORT: 8001
+SERVER:GATEWAY_INTERFACE: CGI/1.1
+SERVER:SERVER_NAME: localhost
+SERVER:SERVER_SOFTWARE: lighttpd/1.4.35 for <a href = 'http://www.kslabs.ru'>KSWEB</a>
+SERVER:FCGI_ROLE: RESPONDER
+SERVER:PHP_SELF: /info.php
+SERVER:REQUEST_TIME_FLOAT: 1764517787.1642461
+SERVER:REQUEST_TIME: 1764517787
+SERVER:argv: []
+SERVER:argc: 0
+============================
+

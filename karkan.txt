@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Editor v3.1 — Pull→Push (Same Track & Same Meta) — In‑place</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{ --bg:#0f1217; --pane:#171b21; --b:#2a2f39; --txt:#e7eaf0; --mut:#98a2b3; --acc:#54a8ff; --ok:#43c37b; --warn:#ffb454; --err:#ff5b5b }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--txt)}
+    header{position:sticky;top:0;background:#151922;border-bottom:1px solid var(--b);padding:10px 16px;z-index:10}
+    .wrap{padding:16px}
+    .panel{background:var(--pane);border:1px solid var(--b);border-radius:12px;padding:12px;margin:0 0 12px 0}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    input,button,select,textarea{background:#0f1217;color:var(--txt);border:1px solid var(--b);border-radius:8px;padding:8px 10px}
+    button.acc{background:var(--acc);color:#041527;border:0}
+    button.ok{background:var(--ok);color:#062012;border:0}
+    .small{color:var(--mut);font-size:12px}
+    select{min-width:360px}
+    table{width:100%;border-collapse:separate;border-spacing:0}
+    th,td{border-bottom:1px solid var(--b);padding:8px;vertical-align:middle}
+    tbody tr:hover{background:#121824}
+    .kar{border:1px dashed var(--b);border-radius:8px;padding:10px;margin-top:8px}
+  </style>
+</head>
+<body>
+<header class="row" style="justify-content:space-between">
+  <div>
+    <strong>Editor v3.1 — Pull→Push (Same Track & Same Meta)</strong>
+    <div class="small">Parse → Detect source lyric location → Edit → Push back in‑place to the <em>same track & same meta type</em> (FF05 Lyric or FF01 Text). No reorder. Instruments preserved.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- PICKER (NO FILTER/MAX/REFRESH) -->
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <div class="row" style="gap:8px">
+        <strong>Choose MIDI/KAR</strong>
+        <select id="fileSelect"><option value="">-- select --</option></select>
+        <button id="btnParse" class="acc">Parse</button>
+        <label class="small">or open local file
+          <input type="file" id="localFile" accept=".mid,.midi,.kar" />
+        </label>
+      </div>
+      <div id="counts" class="row small"></div>
+    </div>
+    <div class="small" id="srcInfo"></div>
+  </div>
+
+  <!-- LINES & EDITING -->
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <strong>Lines (double‑click text to edit)</strong>
+      <div class="row small"><span id="tokInfo"></span></div>
+    </div>
+    <table id="lineTbl">
+      <thead><tr><th>#</th><th>main_time</th><th>text</th><th>syllables</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="kar" id="karPrev"></div>
+  </div>
+
+  <!-- PUSH BACK → SAME PLACE -->
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <strong>Push back (Same track & meta type)</strong>
+      <button id="btnReplace" class="ok">Replace lyrics (ALL, in‑place)</button>
+    </div>
+    <div class="small">Writes to the detected source lyric track & meta type found during parse. No header/track changes.</div>
+  </div>
+
+  <!-- REVIEW -->
+  <div id="reviewPanel" class="panel" style="display:none">
+    <div class="row" style="justify-content:space-between">
+      <strong>Review — Proof</strong>
+      <div class="row">
+        <button id="btnDownload" class="ok" disabled>Download Edited MIDI</button>
+        <button id="btnDiscard" class="acc">Close</button>
+      </div>
+    </div>
+    <div id="reviewSummary" class="small" style="margin:8px 0"></div>
+    <table id="reviewTbl"><thead><tr><th>#</th><th>Line window</th><th>Before (syll)</th><th>After (events)</th><th>Example</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <details>
+    <summary>Debug (current JSON)</summary>
+    <div class="panel">
+      <table id="eventsTbl"><thead><tr><th>#</th><th>sec</th><th>text</th></tr></thead><tbody></tbody></table>
+    </div>
+  </details>
+
+  <div id="msg" class="small"></div>
+</div>
+
+<!-- EDIT MODAL -->
+<div id="editModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);place-items:center">
+  <div style="max-width:900px;width:95%;background:#121824;border:1px solid var(--b);border-radius:12px;padding:12px">
+    <div class="row" style="justify-content:space-between"><strong>Edit Line</strong><button id="btnClose" class="acc">Close</button></div>
+    <div id="editInfo" class="small" style="margin:6px 0"></div>
+    <label class="small">Hyphenated line text</label>
+    <textarea id="editText" style="width:100%;min-height:100px"></textarea>
+    <div class="row small" style="margin:6px 0">
+      <button id="btnApplyText" class="ok">Apply to JSON (keep syllables)</button>
+      <label><input type="checkbox" id="zipTimes" checked> Keep timings when counts match</label>
+      <label><input type="checkbox" id="autoDistIfMismatch" checked> If mismatch, distribute to next line</label>
+    </div>
+    <div class="small">Tokens preview: <span id="tokPrev"></span></div>
+  </div>
+</div>
+
+<script src="./MIDIFile.js"></script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+function showMsg(s){ $('#msg').textContent=s||''; }
+function hideReview(){ const p=$('#reviewPanel'); if(p) p.style.display='none'; }
+function esc(s){ return String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function fmt(sec){ sec=sec||0; const m=Math.floor(sec/60), s=sec%60; return `${String(m).padStart(2,'0')}:${(s.toFixed(2)).padStart(5,'0')}`; }
+
+let arrayBuffer=null, mf=null, json=null;
+let sourceTrack=-1, sourceMeta=0x05; // 0x05 Lyric default; 0x01 Text if detected
+
+// Extractor
+function buildLyricsJSONFromKARItems(items){
+  var lines=[]; var cur={main_time:null, text:'', words:[]};
+  function push(){ if(cur.words.length){ var t0=cur.words[0].t||0; cur.main_time=t0; cur.text=cur.words.map(w=>w.w).join(''); lines.push(cur);} cur={main_time:null,text:'',words:[]}; }
+  var arr=Array.isArray(items)?items:[];
+  for(var i=0;i<arr.length;i++){
+    var e=arr[i]||{}; var t=(e.playTime||0)/1000; var raw=(typeof e.text==='string')?e.text:'';
+    var probe=raw.replace(/\r\n?/g,'\n').trim();
+    if(/^@/.test(probe) || /^\$\$[^\$\$]+\]$/.test(probe)) continue;
+    if(raw===''){ push(); }
+    if(raw==='  '){ if(cur.main_time==null) cur.main_time=t; cur.words.push({t:t,w:' '}); continue; }
+    if(raw==='/'||raw==='\\'||raw==='\n'||raw==='\r'){ push(); continue; }
+    var parts=raw.split(/[\/\\]/);
+    for(var j=0;j<parts.length;j++){
+      var p=parts[j]; if(p!==''){ if(cur.main_time==null) cur.main_time=t; cur.words.push({t:t,w:p}); }
+      if(j<parts.length-1) push();
+    }
+  }
+  push(); return { meta:{}, lines:lines };
+}
+function buildLyricsJSONFromMIDI(ab){ var mf=new MIDIFile(ab); var items=mf.getLyrics()||[]; return buildLyricsJSONFromKARItems(items);} 
+
+// Lister (silent auto-load on DOM ready)
+async function refreshList(){
+  try{ const r=await fetch(`./list_midi.php?q=&max=2000`,{cache:'no-store'}); if(!r.ok) throw 0; const j=await r.json();
+    const sel=$('#fileSelect'); sel.innerHTML=''; (j.files||[]).forEach(p=>{ const o=document.createElement('option'); o.value=p; o.textContent=p; sel.appendChild(o); });
+    $('#counts').textContent=`Found ${j.count} file(s)`;
+  }catch(e){ $('#counts').textContent='Lister not available. Use local file picker.'; }
+}
+window.addEventListener('DOMContentLoaded', refreshList);
+
+// Parse
+$('#btnParse').addEventListener('click', async()=>{
+  const p=$('#fileSelect').value; if(!p){ showMsg('Select a file or use local file'); return; }
+  try{
+    if(p.startsWith('local:')&&arrayBuffer){ mf=new MIDIFile(arrayBuffer); json=buildLyricsJSONFromMIDI(arrayBuffer); afterParse(); return; }
+    const r=await fetch(p,{cache:'no-store'}); if(!r.ok) throw 0; arrayBuffer=await r.arrayBuffer(); mf=new MIDIFile(arrayBuffer); json=buildLyricsJSONFromMIDI(arrayBuffer); afterParse();
+  }catch(e){ console.error(e); showMsg('Parse error'); }
+});
+$('#localFile').addEventListener('change', async(ev)=>{
+  const f=ev.target.files&&ev.target.files[0]; if(!f) return; try{ const ab=await f.arrayBuffer(); arrayBuffer=ab; mf=new MIDIFile(arrayBuffer); json=buildLyricsJSONFromMIDI(arrayBuffer); const sel=$('#fileSelect'); sel.innerHTML=''; const opt=document.createElement('option'); opt.value='local:'+f.name; opt.textContent='[LOCAL] '+f.name; sel.appendChild(opt); sel.value=opt.value; afterParse(); }catch(e){ showMsg('Failed to open local file'); }
+});
+
+function afterParse(){ detectSourceLyricLocation(); renderAll(); hideReview(); showSourceInfo(); showMsg('Parsed'); }
+function renderAll(){ renderLines(); renderPrev(); renderDebugFromJSON(); }
+function renderLines(){ const tb=$('#lineTbl tbody'); tb.innerHTML=''; const lines=json.lines||[]; $('#tokInfo').textContent=`Lines: ${lines.length}`; lines.forEach((ln,i)=>{ const tr=document.createElement('tr'); tr.dataset.li=i; tr.innerHTML=`<td>${i+1}</td><td><span class="chip">${fmt(ln.main_time)}</span></td><td ondblclick="openEdit(${i})">${esc(ln.text||'')}</td><td>${(ln.words||[]).length}</td>`; tb.appendChild(tr); }); }
+function renderPrev(){ const host=$('#karPrev'); host.innerHTML=''; (json.lines||[]).forEach(ln=>{ const d=document.createElement('div'); d.style.padding='6px 8px'; d.style.margin='6px 0'; d.style.border='1px solid var(--b)'; d.style.borderRadius='8px'; d.innerHTML=`<strong>[${fmt(ln.main_time)}]</strong> <code>${esc(ln.text||'')}</code>`; host.appendChild(d); }); }
+function renderDebugFromJSON(){ const tb=$('#eventsTbl tbody'); tb.innerHTML=''; let idx=0; (json.lines||[]).forEach(ln=> (ln.words||[]).forEach(w=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${idx++}</td><td>${(w.t||0).toFixed(2)}</td><td>${esc(w.w||'')}</td>`; tb.appendChild(tr); })); }
+
+// Edit modal
+let curLi=-1; function openEdit(li){ curLi=li; const ln=(json.lines||[])[li]; if(!ln) return; $('#editInfo').textContent=`Line #${li+1} [${fmt(ln.main_time)}]`; $('#editText').value=ln.text||''; $('#tokPrev').textContent=''; $('#editModal').style.display='grid'; }
+$('#btnClose').addEventListener('click',()=> $('#editModal').style.display='none');
+function karTokensFromText(lineText){ const words=(lineText||'').trim().split(/\s+/).filter(Boolean); const out=[]; for(const w of words){ const parts=w.split(/-+/).filter(Boolean); if(parts.length<=1){ out.push(w+' '); } else { for(let i=0;i<parts.length;i++){ out.push(parts[i]+(i===parts.length-1?' ':'-')); } } } return out; }
+$('#btnApplyText').addEventListener('click',()=>{ const ln=(json.lines||[])[curLi]; if(!ln) return; const old=(ln.words||[]).slice(); const toks=karTokensFromText($('#editText').value||''); const keep=$('#zipTimes').checked; const auto=$('#autoDistIfMismatch').checked; const next=(json.lines||[])[curLi+1]; const nextSec= next? (next.main_time||0) : ((ln.main_time||0)+1.5); const nw=[]; if(old.length && toks.length===old.length && keep){ for(let i=0;i<toks.length;i++){ nw.push({t:old[i].t, w:toks[i]}); } } else if(old.length && toks.length && !keep && auto){ const dur=Math.max(0,(nextSec-(ln.main_time||0))-0.01); const step=toks.length? dur/toks.length : 0; for(let i=0;i<toks.length;i++){ nw.push({t:(ln.main_time||0)+i*step, w:toks[i]}); } } else if(toks.length){ const nA=old.length,nB=toks.length; if(nA>0){ const m=Math.min(nA,nB); for(let i=0;i<m;i++){ nw.push({t:old[i].t, w:toks[i]}); } if(nB>nA){ const start=(m?old[m-1].t:(ln.main_time||0)); const end=nextSec; const extra=nB-m; const step= extra? (Math.max(0,(end-start)-0.01)/extra) : 0; for(let j=0;j<extra;j++){ nw.push({t:start+(j+1)*step, w:toks[m+j]}); } } } else { const dur=Math.max(0,(nextSec-(ln.main_time||0))-0.01); const step=toks.length? dur/toks.length : 0; for(let i=0;i<toks.length;i++){ nw.push({t:(ln.main_time||0)+i*step, w:toks[i]}); } } }
+  ln.words=nw; ln.text=$('#editText').value||''; if(nw.length){ ln.main_time=nw[0].t; } $('#editModal').style.display='none'; renderAll(); showMsg('Applied'); });
+
+// Tempo helpers
+function collectTempoSegments(mf){ const segs=[{ms:0, usPerQN:500000, absTick:0}]; for(let t=0;t<mf.header.getTracksCount();t++){ const evs=mf.getTrackEvents(t); let abs=0; for(const ev of evs){ abs+=(ev.delta||0); if(ev.type===MIDIFile.EVENT_META && ev.metaType===0x51){ const usPerQN= ev.tempo? Math.round(ev.tempo*1000):500000; segs.push({ms:Math.round(ev.playTime||0), usPerQN, absTick:abs}); } } } segs.sort((a,b)=> a.ms-b.ms); const out=[]; for(const s of segs){ if(!out.length||out[out.length-1].ms!==s.ms) out.push(s); else out[out.length-1]=s; } return out; }
+function msToTickStrict(ms, segs, ppq){ if(!segs.length) return 0; let prev=segs[0]; for(let i=1;i<segs.length;i++){ const cur=segs[i]; if(ms<=cur.ms){ const dt=ms-prev.ms; const msPerQN=prev.usPerQN/1000; return prev.absTick + Math.round(dt*(ppq/msPerQN)); } prev=cur; } const last=segs[segs.length-1]; const msPerQN=last.usPerQN/1000; return last.absTick + Math.round((ms-last.ms)*(ppq/msPerQN)); }
+
+// MIDI helpers
+function readVar(data,p){ let v=0,c=0; while(true){ const b=data[p++]; v=(v<<7)|(b&0x7F); c++; if(!(b&0x80)) break; } return [v,c]; }
+function pushVar(out,v){ const a=[v&0x7F]; v>>=7; while(v>0){ a.push((v&0x7F)|0x80); v>>=7; } for(let i=a.length-1;i>=0;i--) out.push(a[i]); }
+function asciiBytes(s){ const a=[]; for(const ch of s){ const c=ch.charCodeAt(0); a.push(c<256?c:0x3F); } return a; }
+function strBytes(s){ const a=[]; for(const c of s) a.push(c.charCodeAt(0)); return new Uint8Array(a); }
+function pushStr(out,s){ for(const c of s) out.push(c.charCodeAt(0)); }
+
+// Detect source lyric location
+function detectSourceLyricLocation(){
+  let best={track:-1,meta:-1,ms:Number.POSITIVE_INFINITY};
+  const tracks=mf.header.getTracksCount();
+  for(let t=0;t<tracks;t++){
+    const evs=mf.getTrackEvents(t);
+    for(const ev of evs){ if(ev.type===MIDIFile.EVENT_META && (ev.metaType===0x05||ev.metaType===0x01)){ const ms=ev.playTime||0; if(ms<best.ms){ best={track:t, meta:ev.metaType, ms}; } } }
+  }
+  sourceTrack = (best.track>=0? best.track : 0);
+  sourceMeta  = (best.meta===0x01? 0x01 : 0x05);
+}
+function showSourceInfo(){ const name=(sourceMeta===0x05? 'FF05 Lyric':'FF01 Text'); $('#srcInfo').textContent=`Source: track ${sourceTrack} • ${name}`; }
+
+// In-place replace in SAME TRACK & SAME META TYPE
+function injectLyricsIntoTrackChunkSameType(chunkU8, tokens, metaType){
+  const data=chunkU8.slice(8); let p=0,abs=0,run=0; const evs=[];
+  while(p<data.length){ const vr=readVar(data,p); const delta=vr[0]; p+=vr[1]; abs+=delta; const status=data[p]; if(status===undefined) break; if(status===0xFF){ p++; const type=data[p++]; const v2=readVar(data,p); const mlen=v2[0]; p+=v2[1]; const payload=data.slice(p,p+mlen); p+=mlen; evs.push({kind:'meta',type,abs,delta,payload}); if(type===0x2F) break; }
+  else if(status===0xF0||status===0xF7){ p++; const v2=readVar(data,p); const mlen=v2[0]; p+=v2[1]; const payload=data.slice(p,p+mlen); p+=mlen; evs.push({kind:'syx',status,abs,delta,payload}); }
+  else { let bytes=[]; if(status<0x80){ const st=run; const d1=status; const hi=st&0xF0; if(hi===0xC0||hi===0xD0){ bytes=[st,d1]; } else { const d2=data[p++]; bytes=[st,d1,d2]; } }
+    else { run=status; const hi=status&0xF0; p++; if(hi===0xC0||hi===0xD0){ const d1=data[p++]; bytes=[status,d1]; } else { const d1=data[p++], d2=data[p++]; bytes=[status,d1,d2]; } }
+    evs.push({kind:'ch',abs,delta,bytes}); }
+  }
+  const evsNoType=evs.filter(e=> !(e.kind==='meta' && e.type===metaType));
+  tokens.sort((a,b)=> a.tick-b.tick);
+  let out=[], prevAbs=0, ti=0, nameWritten=false;
+  function emitDelta(toAbs){ const d=Math.max(0,toAbs-prevAbs); pushVar(out,d); prevAbs=toAbs; }
+  function writeName(){ if(nameWritten) return; emitDelta(prevAbs); out.push(0xFF,0x03); const nm=asciiBytes('Lyrics'); pushVar(out,nm.length); for(const b of nm) out.push(b); nameWritten=true; }
+  for(const ev of evsNoType){
+    while(ti<tokens.length && tokens[ti].tick<=ev.abs){ const tk=tokens[ti++]; writeName(); emitDelta(tk.tick); const text=asciiBytes(tk.text||''); out.push(0xFF,metaType); pushVar(out,text.length); for(const b of text) out.push(b); }
+    emitDelta(ev.abs);
+    if(ev.kind==='meta'){ out.push(0xFF,ev.type); const pl=ev.payload||new Uint8Array(); pushVar(out,pl.length); for(const b of pl) out.push(b); }
+    else if(ev.kind==='syx'){ out.push(ev.status); const pl=ev.payload||new Uint8Array(); pushVar(out,pl.length); for(const b of pl) out.push(b); }
+    else { for(const b of ev.bytes) out.push(b); }
+  }
+  while(ti<tokens.length){ const tk=tokens[ti++]; writeName(); emitDelta(tk.tick); const text=asciiBytes(tk.text||''); out.push(0xFF,metaType); pushVar(out,text.length); for(const b of text) out.push(b); }
+  pushVar(out,0); out.push(0xFF,0x2F,0x00);
+  const body=new Uint8Array(out); const outChunk=new Uint8Array(8+body.length); outChunk.set(strBytes('MTrk'),0); outChunk[4]=(body.length>>24)&0xFF; outChunk[5]=(body.length>>16)&0xFF; outChunk[6]=(body.length>>8)&0xFF; outChunk[7]=body.length&0xFF; outChunk.set(body,8); return outChunk;
+}
+function replaceLyricsInPlaceSame(ab, trackIndex, tokens, metaType){
+  const bytes=new Uint8Array(ab); const hdrLen=(bytes[4]<<24)|(bytes[5]<<16)|(bytes[6]<<8)|bytes[7]; const format=(bytes[8]<<8)|bytes[9]; const nTracks=(bytes[10]<<8)|bytes[11]; const divisionRaw=(bytes[12]<<8)|bytes[13]; let pos=8+hdrLen; const chunks=[]; for(let i=0;i<nTracks;i++){ const len=(bytes[pos+4]<<24)|(bytes[pos+5]<<16)|(bytes[pos+6]<<8)|bytes[pos+7]; const chunk=bytes.slice(pos, pos+8+len); chunks.push(chunk); pos+=8+len; } const ti=Math.max(0,Math.min(trackIndex|0,chunks.length-1)); const newChunk=injectLyricsIntoTrackChunkSameType(chunks[ti], tokens, metaType); chunks[ti]=newChunk; const hdr=[]; pushStr(hdr,'MThd'); hdr.push(0,0,0,6); hdr.push((format>>8)&0xFF, format&0xFF); hdr.push((nTracks>>8)&0xFF, nTracks&0xFF); hdr.push((divisionRaw>>8)&0xFF, divisionRaw&0xFF); const hdrU8=new Uint8Array(hdr); const total=hdrU8.length + chunks.reduce((s,c)=> s+c.length, 0); const out=new Uint8Array(total); let off=0; out.set(hdrU8,off); off+=hdrU8.length; for(const c of chunks){ out.set(c,off); off+=c.length; } return out.buffer; }
+
+// Build tokens from JSON
+function tokensFromLine(mf, ln, nextSec){ const ppq=(mf.header.getTimeDivision()===MIDIFile.Header.TICKS_PER_BEAT)? mf.header.getTicksPerBeat():480; const segs=collectTempoSegments(mf); const toks=[]; if(ln.words&&ln.words.length){ for(const w of ln.words){ toks.push({tick: msToTickStrict((w.t||0)*1000,segs,ppq), text:w.w||''}); } return toks; } const parts=karTokensFromText(ln.text||''); const t0=(ln.main_time||0); const t1=(nextSec && nextSec>t0)? nextSec : (t0+1.50); const dur=Math.max(0,(t1-t0)-0.01); const step=parts.length? dur/parts.length : 0; for(let i=0;i<parts.length;i++){ toks.push({tick: msToTickStrict((t0+i*step)*1000,segs,ppq), text:parts[i]}); } return toks; }
+function makeTokensFromJSON(ab, json){ const mf2=new MIDIFile(ab); const toks=[]; const lines=json.lines||[]; for(let i=0;i<lines.length;i++){ const ln=lines[i]; const next=lines[i+1]; const nextSec= next? (next.main_time||0) : undefined; toks.push(...tokensFromLine(mf2, ln, nextSec)); } toks.sort((a,b)=> a.tick-b.tick); return toks; }
+
+// Review (same meta type)
+function scanMeta(ab, metaType){ const mf2=new MIDIFile(ab); const out=[]; for(let t=0;t<mf2.header.getTracksCount();t++){ const evs=mf2.getTrackEvents(t); for(const ev of evs){ if(ev.type===MIDIFile.EVENT_META && ev.metaType===metaType){ out.push({ms:ev.playTime||0, text: typeof ev.text==='string'? ev.text:''}); } } } out.sort((a,b)=> a.ms-b.ms); return out; }
+function fmtMMSSxx(ms){ const s=(ms||0)/1000; const m=Math.floor(s/60), r=s%60; return `${String(m).padStart(2,'0')}:${r.toFixed(2).padStart(5,'0')}`; }
+function renderReview(ab){ const evs=scanMeta(ab, sourceMeta); const first=evs[0]||null, last=evs[evs.length-1]||null; const name=(sourceMeta===0x05?'FF05 Lyric':'FF01 Text'); $('#reviewSummary').innerHTML=`${name} events: <strong>${evs.length}</strong> • first: ${first?('"'+esc(first.text)+'" @ '+fmtMMSSxx(first.ms)):'n/a'} • last: ${last?('"'+esc(last.text)+'" @ '+fmtMMSSxx(last.ms)):'n/a'}`; const tb=$('#reviewTbl tbody'); tb.innerHTML=''; const lines=(json&&json.lines)||[]; for(let i=0;i<lines.length;i++){ const ln=lines[i]; const next=lines[i+1]; const t0=(ln.main_time||0)*1000; const t1= next? (next.main_time||0)*1000 : ((ln.main_time||0)+1.5)*1000; const seg=evs.filter(e=> e.ms>=t0 && e.ms<t1); const before=(ln.words||[]).length || (ln.text||'').split(/\s+/).filter(Boolean).length; const ex=seg.slice(0,3).map(e=> `${fmtMMSSxx(e.ms)} ${esc(e.text)}`).join('<br>') || '&nbsp;'; const tr=document.createElement('tr'); tr.innerHTML=`<td>${i+1}</td><td>[${fmt(ln.main_time||0)}] → [${fmt(t1/1000)}]</td><td>${before}</td><td>${seg.length}</td><td><code>${ex}</code></td>`; tb.appendChild(tr); } $('#reviewPanel').style.display='block'; const btn=$('#btnDownload'); btn.disabled=false; btn.onclick=()=>{ const base=($('#fileSelect').value||'output').replace(/\.[^.]+$/,''); const isMid=(/\.(mid|midi)$/i).test($('#fileSelect').value||''); const ext=isMid?'mid':'kar'; const blob=new Blob([ab],{type:'audio/midi'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=base+'_lyrics_inplace.'+ext; a.click(); }; $('#btnDiscard').onclick=()=> $('#reviewPanel').style.display='none'; }
+
+// Replace back in same place
+$('#btnReplace').addEventListener('click', ()=>{
+  if(!arrayBuffer||!json||!mf){ showMsg('Parse a file first'); return; }
+  const tokens=makeTokensFromJSON(arrayBuffer, json); if(!tokens.length){ showMsg('No tokens to embed. Edit a line and Apply first.'); return; }
+  const outBuf=replaceLyricsInPlaceSame(arrayBuffer, sourceTrack, tokens, sourceMeta);
+  renderReview(outBuf);
+});
+</script>
+</body>
+</html>
