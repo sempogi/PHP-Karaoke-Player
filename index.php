@@ -50,7 +50,6 @@ $fontList=list_files($FONT_DIR,['ttf','otf','woff','woff2']); // NEW: scan fonts
 ?>
 <!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>KaraokeHD Player v6.7.6g+</title>
-
 <style>
 :root{--bg:#0b0b0b;--fg:#e7e7e7;--muted:#9aa0a6;--panel:#151515;--line:#1e1e1e;--accent:#4fd1ff;--hl:#7ef9a7;--tickH:30px;--vizH:160px;--gapH:2px}
 *{box-sizing:border-box}
@@ -167,16 +166,54 @@ main{padding:10px;display:grid;gap:10px}
 .lv{display:flex;flex-direction:column;gap:6px}
 .lv .line{white-space:pre-wrap}
 .lv .prev{opacity:.1;font-size:calc(var(--fs,1)*0.95em)}
-.lv .act{font-size:calc(var(--fs,1)*1.18em);font-weight:700}
+.lv .act{font-size:calc(var(--fs,1)*1.18em)}
 .lv .next{opacity:.95;font-size:calc(var(--fs,1)*1.00em)}
+/* Two-slot karoLine styles: make both slots identical in font-size */
+.lv .karoLine{font-size:calc(var(--fs,1)*1.18em)}
+.lv .karoLine.current{font-weight:normal}
+.lv.split{display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:12px}
+.lv.split .karoLine{width:auto; flex:0 0 auto; white-space:nowrap; overflow:visible; max-width:100%}
+.lv.split .karoLine.current{order:0}
+.lv.split .karoLine.upcoming{order:1}
+/* In split mode, force physical placement: top slot (lyTop) is left-most, bottom (lyBottom) is right-most.
+  This ensures split mode always places `#lyTop` on the left and `#lyBottom` on the right, while
+  logical current/upcoming continue to swap between these slots. */
+.lv.split #lyTop{ order:0; text-align:left }
+.lv.split #lyBottom{ order:1; text-align:right }
+.lv .karoLine.upcoming{opacity:.95}
+
+/* Safety: ensure only the two expected slots show inside #lyTri */
+#lyTri > :not(#lyTop):not(#lyBottom){ display:none !important }
 .lv .w{white-space:pre-wrap;padding:0}
 .lv .w.on{color:var(--hl)}
+/* Progressive per-word highlight: add an overlay span that is clipped by --prog (0..1) */
+.lv .w{position:relative;display:inline-block}
+.lv .w .w-base{display:inline-block}
+/* Progressive highlight applied to both lyric slots */
+.lv .w .w-hi, .lv .karoLine .w .w-hi {position:absolute;left:0;top:0;bottom:0;overflow:hidden;white-space:pre-wrap;display:inline-block;color:var(--hl);pointer-events:none;clip-path:inset(0 calc(100% - var(--prog, 0%)) 0 0);will-change:clip-path}
+.lv .karoLine .w{position:relative;display:inline-block}
+.lv .karoLine .w .w-base{display:inline-block}
+.lv .karoLine .w .w-hi{position:absolute;left:0;top:0;bottom:0;overflow:hidden;white-space:pre-wrap;display:inline-block;color:var(--hl);pointer-events:none;clip-path:inset(0 calc(100% - var(--prog, 0%)) 0 0);will-change:clip-path}
+.lv .karoLine .karoToken{display:inline-block;margin:0 .04em}
+/* Per-character token wrapper - keep exact layout metrics stable */
+.lv .karoLine .karoChar{display:inline-block;position:relative;vertical-align:baseline}
+.lv .karoLine .karoLetter.base{display:inline-block;color:inherit;font:inherit;line-height:inherit}
+.lv .karoLine .karoLetter.hi{position:absolute;left:0;top:0;display:inline-block;width:100%;height:100%;overflow:hidden;color:var(--hl);font:inherit;line-height:inherit;pointer-events:none;clip-path:inset(0 calc(100% - var(--kara-progress, 0%)) 0 0);mix-blend-mode:normal}
+
+/* Glow only when user enables it (controlled by setLyrGlow toggling #lyBody.glow) */
+#lyBody.glow .karoLine .karoLetter.hi,
+#lyBody.glow .karoLetter.hi {
+  text-shadow: 0 0 8px color-mix(in srgb, var(--hl) 85%, transparent);
+}
+.lv .w{transform-origin:50% 80%;}
 
 #playlist a.song.now{color:var(--hl);font-weight:700;text-decoration:underline}
 #lyFull .line{padding:2px 0}
 #lyFull .line.active{color:var(--hl);font-weight:700}
 
-
+#lyBody.glow .w.on{ text-shadow:0 0 6px color-mix(in srgb, var(--hl) 85%, transparent),
+                             0 0 14px color-mix(in srgb, var(--hl) 55%, transparent),
+                             0 0 24px color-mix(in srgb, var(--hl) 35%, transparent) }
 /* === Highlight Pulse (minimal, crisp, no fades) === */
 
 /* Tunables (optional) */
@@ -253,8 +290,8 @@ main{padding:10px;display:grid;gap:10px}
 .wm-btn:hover{filter:brightness(1.15)}
 
 
-/* Lyrics outline */
-#lyTri .line, #lyTri .w,
+/* Lyrics outline (include new karoLine tokens/characters) */
+#lyTri .line, #lyTri .w, #lyTri .karoLine, #lyTri .karoLine .karoToken, #lyTri .karoLine .karoChar,
 #lyFull .line, #lyFull .w{
   -webkit-text-stroke: 0.02px #000;
   text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
@@ -298,36 +335,6 @@ main{padding:10px;display:grid;gap:10px}
 #ch16Panel { display: none; }
 #ch16Panel.visible { display: block; }
 
-/* Base word style (optional, keep your existing styles) */
-#lyAct .w {
-  /* fallback text color for unhighlighted words */
-  color: var(--fg, #fff);
-}
-
-/* Fully highlighted past words */
-#lyAct .w.on {
-  color: var(--hl);
-  text-shadow: 0 0 8px var(--hl);
-}
-
-/* Current word with smooth 0–100% fill using --p */
-#lyAct .w.cur {
-  /* We render color by gradient so set text color transparent */
-  color: transparent;
-
-  /* Smooth fill from left → right */
-  background-image: linear-gradient(
-    to right,
-    var(--hl) 0%,
-    var(--hl) var(--p, 0%),
-    currentColor var(--p, 0%)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  /* optional glow emphasis */
-  text-shadow: 0 0 10px var(--hl);
-}
 </style>
 
 <!-- === THEME PRESETS (Quick Color Theme Switch) === -->
@@ -387,6 +394,7 @@ button:hover, a.btn:hover, .wm-btn:hover, .chip:hover {
 }
 </style>
 <!-- Place this near the end of the document (after WM.init and other CSS) -->
+
 <style id="lyrics-zorder-patch">
   /* Panels stay above; lyrics stays below panels but above visualizer */
   :root { --z-lyrics: 150; }             /* lower than panel baseline (200+) */
@@ -399,6 +407,9 @@ button:hover, a.btn:hover, .wm-btn:hover, .chip:hover {
   opacity: 0 !important;
   filter: none !important;     /* neutralize brightness filter */
 }
+
+
+
 
 </style>
 </head>
@@ -624,18 +635,18 @@ button:hover, a.btn:hover, .wm-btn:hover, .chip:hover {
   </div>
   <div class="fly-body" id="lyBody">
     <div class="lv" id="lyTri">
-      <div class="line prev" id="lyPrev"></div>
-      <div class="line act"  id="lyAct"></div>
-      <div class="line next" id="lyNext"></div>
+      <div id="lyTop" class="karoLine"></div>
+      <div id="lyBottom" class="karoLine"></div>
     </div>
     <div id="lyFull" style="display:none"></div>
   </div>
   <div class="fly-foot" id="lyFoot">
     <div class="foot-left">
       <span class="small">Align</span>
-      <button id="alignLeft"  title="Align left">L</button>
-      <button id="alignCenter" title="Align center">C</button>
-      <button id="alignRight" title="Align right">R</button>
+    <button id="alignLeft"  title="Align left">L</button>
+    <button id="alignCenter" title="Align center">C</button>
+    <button id="alignRight" title="Align right">R</button>
+    <button id="alignSplit"  title="Split view">S</button>
     </div>
     <div class="foot-right">
       <span class="small">Size</span>
@@ -701,11 +712,15 @@ var BG_GRADIENTS = [
 // NEW: expose custom font files to JS
 var FONT_FILES = <?php echo json_encode(array_values(array_map(function($x){ return $x['path']; }, $fontList))); ?>;
 
-var ui={start:document.getElementById('startBtn'),stop:document.getElementById('stopBtn'),resume:document.getElementById('resumeBtn'),sfSelect:document.getElementById('sfSelect'),volRange:document.getElementById('volRange'),time:document.getElementById('time'),status:document.getElementById('status'),now:document.getElementById('nowPlaying'),spinner:document.getElementById('spinner'),list:document.getElementById('playlist'),canvas:document.getElementById('viz'),showBrowser:document.getElementById('showBrowser'),showQueue:document.getElementById('showQueue'),browserPanel:document.getElementById('browserPanel'),queuePanel:document.getElementById('queuePanel'),queueList:document.getElementById('queueList'),tickerTrack:document.getElementById('tickerTrack'),showLyrics:document.getElementById('showLyrics'),lyWin:document.getElementById('lyWin'),lyHead:document.getElementById('lyHead'),lyBody:document.getElementById('lyBody'),lyTitle:document.getElementById('lyTitle'),lyPrev:document.getElementById('lyPrev'),lyAct:document.getElementById('lyAct'),lyNext:document.getElementById('lyNext'),lyTri:document.getElementById('lyTri'),lyFull:document.getElementById('lyFull'),lyClose:document.getElementById('lyClose'),opRange:document.getElementById('opRange'),btnTri:document.getElementById('btnTri'),btnFull:document.getElementById('btnFull'),btnGlow:document.getElementById('btnGlow'),btnSmaller:document.getElementById('btnSmaller'),btnBigger:document.getElementById('btnBigger'),alignLeft:document.getElementById('alignLeft'),alignCenter:document.getElementById('alignCenter'),alignRight:document.getElementById('alignRight'),showBG:document.getElementById('showBG'),bgPanel:document.getElementById('bgPanel'),bgShuffle:document.getElementById('bgShuffle'),bgImgDur:document.getElementById('bgImgDur'),bgImgDurLabel:document.getElementById('bgImgDurLabel'),bgGradSel:document.getElementById('bgGradSel'),bgColorPicker:document.getElementById('bgColorPicker'),bgPrev:document.getElementById('bgPrev'),bgNext:document.getElementById('bgNext'),bgPause:document.getElementById('bgPause'),bgPlay:document.getElementById('bgPlay'),bgStats:document.getElementById('bgStats'),fsToggle:document.getElementById('fsToggle'),sfToast:document.getElementById('sfToast'),sfApplyNow:document.getElementById('sfApplyNow'),sfApplyNext:document.getElementById('sfApplyNext'),sfCancel:document.getElementById('sfCancel'),sfRemember:document.getElementById('sfRemember'),sfToastMsg:document.getElementById('sfToastMsg'),fsRange:document.getElementById('fsRange'),fsLabel:document.getElementById('fsLabel'),blurRange:document.getElementById('blurRange'),blurLabel:document.getElementById('blurLabel'),btnAutoHide:document.getElementById('btnAutoHide'),hlPick:document.getElementById('hlPick'),hlChips:document.getElementById('hlChips'),browserSearch:document.getElementById('browserSearch'),browserSearchClear:document.getElementById('browserSearchClear'),browserSearchCount:document.getElementById('browserSearchCount'),
+var ui={start:document.getElementById('startBtn'),stop:document.getElementById('stopBtn'),resume:document.getElementById('resumeBtn'),sfSelect:document.getElementById('sfSelect'),volRange:document.getElementById('volRange'),time:document.getElementById('time'),status:document.getElementById('status'),now:document.getElementById('nowPlaying'),spinner:document.getElementById('spinner'),list:document.getElementById('playlist'),canvas:document.getElementById('viz'),showBrowser:document.getElementById('showBrowser'),showQueue:document.getElementById('showQueue'),browserPanel:document.getElementById('browserPanel'),queuePanel:document.getElementById('queuePanel'),queueList:document.getElementById('queueList'),tickerTrack:document.getElementById('tickerTrack'),showLyrics:document.getElementById('showLyrics'),lyWin:document.getElementById('lyWin'),lyHead:document.getElementById('lyHead'),lyBody:document.getElementById('lyBody'),lyTitle:document.getElementById('lyTitle'),lyTop:document.getElementById('lyTop'),lyBottom:document.getElementById('lyBottom'),lyTri:document.getElementById('lyTri'),lyFull:document.getElementById('lyFull'),lyClose:document.getElementById('lyClose'),opRange:document.getElementById('opRange'),btnTri:document.getElementById('btnTri'),btnFull:document.getElementById('btnFull'),btnGlow:document.getElementById('btnGlow'),btnSmaller:document.getElementById('btnSmaller'),btnBigger:document.getElementById('btnBigger'),alignLeft:document.getElementById('alignLeft'),alignCenter:document.getElementById('alignCenter'),alignRight:document.getElementById('alignRight'),alignSplit:document.getElementById('alignSplit'),showBG:document.getElementById('showBG'),bgPanel:document.getElementById('bgPanel'),bgShuffle:document.getElementById('bgShuffle'),bgImgDur:document.getElementById('bgImgDur'),bgImgDurLabel:document.getElementById('bgImgDurLabel'),bgGradSel:document.getElementById('bgGradSel'),bgColorPicker:document.getElementById('bgColorPicker'),bgPrev:document.getElementById('bgPrev'),bgNext:document.getElementById('bgNext'),bgPause:document.getElementById('bgPause'),bgPlay:document.getElementById('bgPlay'),bgStats:document.getElementById('bgStats'),fsToggle:document.getElementById('fsToggle'),sfToast:document.getElementById('sfToast'),sfApplyNow:document.getElementById('sfApplyNow'),sfApplyNext:document.getElementById('sfApplyNext'),sfCancel:document.getElementById('sfCancel'),sfRemember:document.getElementById('sfRemember'),sfToastMsg:document.getElementById('sfToastMsg'),fsRange:document.getElementById('fsRange'),fsLabel:document.getElementById('fsLabel'),blurRange:document.getElementById('blurRange'),blurLabel:document.getElementById('blurLabel'),btnAutoHide:document.getElementById('btnAutoHide'),hlPick:document.getElementById('hlPick'),hlChips:document.getElementById('hlChips'),browserSearch:document.getElementById('browserSearch'),browserSearchClear:document.getElementById('browserSearchClear'),browserSearchCount:document.getElementById('browserSearchCount'),
 // Control Center elements
 ccPanel:document.getElementById('ccPanel'), ccStart:document.getElementById('ccStart'), ccResume:document.getElementById('ccResume'), ccSkip:document.getElementById('ccSkip'), ccVol:document.getElementById('ccVol'), ccVolLabel:document.getElementById('ccVolLabel'), ccSf:document.getElementById('ccSf'), ccSfPolicy:document.getElementById('ccSfPolicy'), ccShowLyrics:document.getElementById('ccShowLyrics'), ccPinLyrics:document.getElementById('ccPinLyrics'), ccGlow:document.getElementById('ccGlow'), ccAutoHide:document.getElementById('ccAutoHide'), ccHLs:document.getElementById('ccHLs'), ccHLpick:document.getElementById('ccHLpick'), ccCompactHead:document.getElementById('ccCompactHead')};
 
 var ac,synth,node,masterGain,comp,analyser,rafViz=0,rafTime=0,rafLyrics=0; var isPlaying=false,songStart=0,currentSong=null,token=0; var sfSelected='',sfCache={},pendingSF=null; var q=[],busy=false; var lastPlayed=null,lastMIDIBuf=null; var lastLyrics=null,lyricsState={lines:[],idxLine:-1,idxWord:-1};
+// Progressive highlight tunables (ms)
+var lyrPrerollMs = 60;    // lead to avoid perceived late starts
+var lyrMinWordDurMs = 80; // minimum duration used for per-word progress
+var lyrLastWordPadMs = 120; // pad end for last word when no following timestamp
 var lsFS=localStorage.getItem('lyrFontScale'); var lyrFontScale=parseFloat(lsFS!=null?lsFS:(window.innerWidth>=1200?'1.28':'1.08'))||1; var lyrMode = localStorage.getItem('lyrMode')||'tri'; var lyrGlow=(localStorage.getItem('lyrGlow')||'on')==='on'; var lyrAlign=localStorage.getItem('lyrAlign')||'center';
 var lyBlur = parseInt(localStorage.getItem('lyBlur')||'8',10); if(isNaN(lyBlur)) lyBlur=8; var lyAutoHide=(localStorage.getItem('lyAutoHide')||'on')==='on'; var _hideTimer=null;
 var hlColor = localStorage.getItem('lyrHLColor') || '#7ef9a7';
@@ -920,13 +935,59 @@ async function feedNextIfAny(){if(q.length===0){setStatus('IDLE'); updateTicker(
 var ACTIVE_SPANS=[];
 function escJoin(L){var arr=(L&&L.words)?L.words.map(function(w){return w.w;}):[]; return escapeHtml(arr.join(''));}
 function ensureLyWin(){var win=ui.lyWin;if(!win)return; var op=parseFloat(localStorage.getItem('lyrOpacity')||'0.78'); setLyOpacity(op); ui.opRange.value=Math.round(op*100); applyAlign(); applyFSUI(); applyBlur(); applyHLColor(); applyAutoHideUI(); }
+// Ensure #lyTri contains exactly the two slots we expect (lyTop, lyBottom)
+ (function(){
+   try{
+     var tri = document.getElementById('lyTri');
+     if(tri){
+       var top = document.getElementById('lyTop');
+       var bottom = document.getElementById('lyBottom');
+       // Rebuild if something else exists
+       var needRebuild = false;
+       for(var i=0;i<tri.children.length;i++){ var c = tri.children[i]; if(c.id !== 'lyTop' && c.id !== 'lyBottom'){ needRebuild = true; break; } }
+       if(needRebuild){
+         var newTop = top || document.createElement('div'); newTop.id='lyTop'; newTop.className='karoLine';
+         var newBottom = bottom || document.createElement('div'); newBottom.id='lyBottom'; newBottom.className='karoLine';
+         tri.innerHTML=''; tri.appendChild(newTop); tri.appendChild(newBottom);
+         // Refresh UI mapping
+         if(window.ui){ ui.lyTop = document.getElementById('lyTop'); ui.lyBottom = document.getElementById('lyBottom'); }
+       }
+     }
+   }catch(_){ }
+ })();
 function setLyOpacity(a){a=Math.max(.35,Math.min(1,a||.78)); ui.lyWin.style.background='rgba(0,0,0,'+a+')'; localStorage.setItem('lyrOpacity', String(a));}
 function setLyrMode(m){ lyrMode=m; localStorage.setItem('lyrMode',m); ui.lyTri.style.display=(m==='tri')?'block':'none'; ui.lyFull.style.display=(m==='full')?'block':'none'; if (ui.btnTri && ui.btnFull){ ui.btnTri.classList.toggle('active', m==='tri'); ui.btnFull.classList.toggle('active', m==='full'); ui.btnTri.setAttribute('aria-pressed', String(m==='tri')); ui.btnFull.setAttribute('aria-pressed', String(m==='full')); } }
 function setLyrGlow(on){lyrGlow=!!on; localStorage.setItem('lyrGlow', on?'on':'off'); ui.lyBody.classList.toggle('glow',lyrGlow); if(ui.ccGlow) ui.ccGlow.classList.toggle('active',lyrGlow);} 
 function applyFontScale(){var s=Math.max(.8,Math.min(1.8,lyrFontScale)); ui.lyBody.style.setProperty('--fs',s); localStorage.setItem('lyrFontScale', String(s)); applyFSUI();}
-function applyAlign(){ ui.lyTri.style.textAlign=lyrAlign; ui.lyFull.style.textAlign=lyrAlign; localStorage.setItem('lyrAlign',lyrAlign); [ui.alignLeft,ui.alignCenter,ui.alignRight].forEach(function(b){b.classList.remove('active');}); if(lyrAlign==='left') ui.alignLeft.classList.add('active'); else if(lyrAlign==='center') ui.alignCenter.classList.add('active'); else ui.alignRight.classList.add('active'); }
+function applyAlign(){
+  // tri view: support 'split' which places current left and incoming right
+  if (ui.lyTri) {
+    if (lyrAlign === 'split') {
+      ui.lyTri.classList.add('split');
+      // top left, bottom right
+      if (ui.lyTop) ui.lyTop.style.textAlign = 'left';
+      if (ui.lyBottom) ui.lyBottom.style.textAlign = 'right';
+      // clear container-level alignment
+      ui.lyTri.style.textAlign = '';
+    } else {
+      ui.lyTri.classList.remove('split');
+      // apply same alignment to both slots
+      if (ui.lyTop) ui.lyTop.style.textAlign = lyrAlign;
+      if (ui.lyBottom) ui.lyBottom.style.textAlign = lyrAlign;
+      ui.lyTri.style.textAlign = '';
+    }
+  }
+  // full view: use normal textAlign (split doesn't apply)
+  ui.lyFull.style.textAlign = (lyrAlign === 'split') ? 'center' : lyrAlign;
+  localStorage.setItem('lyrAlign', lyrAlign);
+  [ui.alignLeft, ui.alignCenter, ui.alignRight, ui.alignSplit].forEach(function(b){ b.classList.remove('active'); });
+  if (lyrAlign === 'left') ui.alignLeft.classList.add('active');
+  else if (lyrAlign === 'center') ui.alignCenter.classList.add('active');
+  else if (lyrAlign === 'right') ui.alignRight.classList.add('active');
+  else if (lyrAlign === 'split') ui.alignSplit.classList.add('active');
+}
 
-ui.alignLeft.addEventListener('click', function(){lyrAlign='left'; applyAlign();}); ui.alignCenter.addEventListener('click', function(){lyrAlign='center'; applyAlign();}); ui.alignRight.addEventListener('click', function(){lyrAlign='right'; applyAlign();}); ui.opRange.addEventListener('input', function(e){setLyOpacity(parseInt(e.target.value,10)/100);});
+ui.alignLeft.addEventListener('click', function(){lyrAlign='left'; applyAlign();}); ui.alignCenter.addEventListener('click', function(){lyrAlign='center'; applyAlign();}); ui.alignRight.addEventListener('click', function(){lyrAlign='right'; applyAlign();}); ui.alignSplit && ui.alignSplit.addEventListener('click', function(){lyrAlign='split'; applyAlign();}); ui.opRange.addEventListener('input', function(e){setLyOpacity(parseInt(e.target.value,10)/100);});
 ui.fsRange && ui.fsRange.addEventListener('input', function(){ var v=parseInt(ui.fsRange.value,10); if(isNaN(v)) return; lyrFontScale = v/100; applyFontScale(); });
 ui.blurRange && ui.blurRange.addEventListener('input', function(){ var v=parseInt(ui.blurRange.value,10); if(isNaN(v)) return; lyBlur=v; applyBlur(); });
 ui.btnTri.addEventListener('click', function(){setLyrMode('tri');}); ui.btnFull.addEventListener('click', function(){setLyrMode('full');}); ui.btnGlow.addEventListener('click', function(){setLyrGlow(!lyrGlow);}); ui.btnSmaller.addEventListener('click', function(){lyrFontScale-=0.06; applyFontScale();}); ui.btnBigger.addEventListener('click', function(){lyrFontScale+=0.06; applyFontScale();});
@@ -942,53 +1003,137 @@ if(ui.btnAutoHide){ ui.btnAutoHide.addEventListener('click', function(){ lyAutoH
 function buildLyricsJSONFromKARItems(items){var lines = [];var cur = { main_time:null, text:'', words:[] };function push(){ if (cur.words.length){ var t0 = cur.words[0].t || 0; cur.main_time = t0; cur.text = cur.words.map(function(w){ return w.w; }).join(''); lines.push(cur);} cur = { main_time:null, text:'', words:[] }; }var arr = Array.isArray(items) ? items : [];for (var i=0; i<arr.length; i++){var e = arr[i] || {}; var t = (e.playTime || 0) / 1000; var raw = (typeof e.text === 'string') ? e.text : '';var probe = raw.replace(/\r\n?/g,'\n').trim(); if (/^@/.test(probe) || /^\$\$[^\$\$]+\]$/.test(probe)) continue; if (raw === '') { push(); } if (raw === '  ') { if (cur.main_time == null) cur.main_time = t; cur.words.push({ t: t, w: ' ' }); continue; } if (raw === '/' || raw === '\\' || raw === '\n' || raw === '\r') { push(); continue; } var parts = raw.split(/[\/\\]/); for (var j=0; j<parts.length; j++){ var p = parts[j]; if (p !== ''){ if (cur.main_time == null) cur.main_time = t; cur.words.push({ t: t, w: p }); } if (j < parts.length - 1) push(); } } push(); return { meta:{}, lines: lines };}
 function buildLyricsJSONFromMIDI(ab){var mf=new MIDIFile(ab); var items=mf.getLyrics()||[]; return buildLyricsJSONFromKARItems(items);} 
 function renderLyricsFull(json){ui.lyFull.innerHTML=''; if(!json||!json.lines||!json.lines.length){ui.lyFull.innerHTML='<div class="small" style="padding:6px;color:#888">No lyrics</div>';return;} var html=''; for(var i=0;i<json.lines.length;i++){var L=json.lines[i]; html+='<div class="line">'; for(var w=0; w<(L.words||[]).length; w++){ html+='<span class="w">'+escapeHtml(L.words[w].w)+'</span>'; } html+='</div>'; } ui.lyFull.innerHTML=html; var first = ui.lyFull.firstElementChild; if(first) first.classList.add('active');}
-function buildActiveSpans(L){var html=''; for(var i=0;i<(L.words||[]).length;i++){html+='<span class="w">'+escapeHtml(L.words[i].w)+'</span>'; } ui.lyAct.innerHTML=html; ACTIVE_SPANS=[].slice.call(ui.lyAct.querySelectorAll('.w'));
+// Build active-line DOM using per-character spans (smooth per-letter progress)
+function computeActiveGroup(toks, now) {
+  var ai = -1;
+  for (var i = 0; i < toks.length; i++) {
+    if ((toks[i].t || 0) <= now) ai = i; else break;
+  }
+  if (ai < 0) return { ai: -1, L: -1, R: -1, at: 0 };
+  var at = toks[ai].t || 0;
+  var L = ai, R = ai;
+  while (L - 1 >= 0 && Math.abs((toks[L-1].t || 0) - at) <= 0.0001) L--;
+  while (R + 1 < toks.length && Math.abs((toks[R+1].t || 0) - at) <= 0.0001) R++;
+  return { ai: ai, L: L, R: R, at: at };
 }
-function renderLyrics(json){lastLyrics=json; lyricsState={lines:json?json.lines:[],idxLine:-1,idxWord:-1}; ensureLyWin(); applyFontScale(); setLyrMode(lyrMode); setLyrGlow(lyrGlow); applyAlign(); if(!json||!json.lines||!json.lines.length){ ui.lyPrev.textContent=''; ui.lyAct.textContent=''; ui.lyNext.textContent=''; ui.lyFull.innerHTML='<div class="small" style="padding:6px;color:#888">No lyrics</div>'; return;} ui.lyPrev.textContent=''; buildActiveSpans(json.lines[0]||{words:[]}); ui.lyNext.innerHTML=escJoin(json.lines[1]); renderLyricsFull(json);} 
-function repaintLyricsTri(now){var json=lastLyrics; if(!json||!json.lines||!json.lines.length) return; var lines=json.lines; var li=-1; for(var i=0;i<lines.length;i++){if(lines[i].main_time<=now) li=i; else break;} if(li<0){ui.lyPrev.innerHTML=''; ui.lyAct.innerHTML=''; ui.lyNext.innerHTML=escJoin(lines[0]); return;} var Lcur=lines[li],Lprev=(li>0)?lines[li-1]:null,Lnext=(li<lines.length-1)?lines[li+1]:null; if(lyricsState.idxLine!==li){ui.lyPrev.innerHTML=escJoin(Lprev); buildActiveSpans(Lcur||{words:[]}); ui.lyNext.innerHTML=escJoin(Lnext); lyricsState.idxLine=li; lyricsState.idxWord=-1;} var wi=-1; var W=(Lcur&&Lcur.words)?Lcur.words:[]; for(var k=0;k<W.length;k++){ if(W[k].t<=now) wi=k; else break;} // Compute progress across the current word (0..1)
-var HOLD = 0.25; // seconds to hold the last word if no next timestamp
-var tStart = null, tEnd = null;
 
-if (wi >= 0) {
-  tStart = W[wi].t;
-  if (wi < W.length - 1) {
-    // Next word exists → end at next word start
-    tEnd = W[wi + 1].t;
-  } else {
-    // Last word → use next line start if available, otherwise a small hold
-    tEnd = (Lnext && typeof Lnext.main_time === 'number')
-      ? Lnext.main_time
-      : (tStart + HOLD);
+function letterSpan(ch, progressPct) {
+  var wrap = document.createElement('span'); wrap.className = 'karoChar';
+  var base = document.createElement('span'); base.className = 'karoLetter base'; base.textContent = (ch === ' ') ? '\u00A0' : ch;
+  var hi = document.createElement('span'); hi.className = 'karoLetter hi'; hi.textContent = (ch === ' ') ? '\u00A0' : ch;
+  wrap.style.setProperty('--kara-progress', Math.max(0, Math.min(100, progressPct)) + '%');
+  wrap.appendChild(base); wrap.appendChild(hi);
+  return wrap;
+}
+
+function pushWordLetters(tspan, word, progress) {
+  var len = (word && word.length) ? word.length : 1;
+  var filled = Math.max(0, Math.min(1, progress)) * len;
+  var full = Math.floor(filled);
+  var part = Math.max(0, Math.min(1, filled - full));
+  for (var j = 0; j < len; j++) {
+    var ch = word[j] || ' ';
+    var p = 0;
+    if (progress >= 1) p = 100; else if (progress <= 0) p = 0; else p = (j < full) ? 100 : ((j === full) ? Math.round(part * 100) : 0);
+    tspan.appendChild(letterSpan(ch, p));
   }
 }
 
-var prog = 0;
-if (tStart != null && tEnd != null) {
-  var span = Math.max(0.001, tEnd - tStart); // guard against zero/negative
-  prog = (now - tStart) / span;
-  if (prog < 0) prog = 0;
-  if (prog > 1) prog = 1;
-}
-
-// Repaint only if line changed or word index changed
-if (lyricsState.idxWord !== wi || lyricsState.idxLine !== li) {
-  // Clear state and re‑apply cumulative highlight up to (but NOT including) current word
-  ACTIVE_SPANS.forEach(function(s){
-    s.classList.remove('on', 'cur');
-    s.style.removeProperty('--p');
-  });
-  for (var j = 0; j < wi; j++) {
-    if (ACTIVE_SPANS[j]) ACTIVE_SPANS[j].classList.add('on');
+function drawTokensInto(el, words, now) {
+  el.innerHTML = '';
+  var grp = computeActiveGroup(words, now);
+  var at = grp.at;
+  var nextTime = (grp.R + 1 < words.length && words[grp.R + 1].t != null) ? words[grp.R + 1].t : (words.length ? (words[words.length - 1].t || at) : at);
+  var denom = Math.max(0.001, nextTime - at);
+  var progGlobal = Math.max(0, Math.min(1, (now - at) / denom));
+  for (var i = 0; i < words.length; i++) {
+    var tspan = document.createElement('span'); tspan.className = 'karoToken';
+    var w = words[i].w || '';
+    if (i < grp.L) {
+      pushWordLetters(tspan, w, 1);
+    } else if (i >= grp.L && i <= grp.R) {
+      pushWordLetters(tspan, w, progGlobal);
+    } else {
+      pushWordLetters(tspan, w, 0);
+    }
+    el.appendChild(tspan);
   }
-  lyricsState.idxWord = wi;
+}
+function renderLyrics(json){
+  lastLyrics = json;
+  lyricsState = { lines: json ? json.lines : [], idxLine: -1, idxWord: -1, karoLineToggle: 0, karoLastLineIndex: -1 };
+  ensureLyWin(); applyFontScale(); setLyrMode(lyrMode); setLyrGlow(lyrGlow); applyAlign();
+  if (!json || !json.lines || !json.lines.length) {
+    if (ui.lyTop) ui.lyTop.textContent = '';
+    if (ui.lyBottom) ui.lyBottom.textContent = '';
+    ui.lyFull.innerHTML = '<div class="small" style="padding:6px;color:#888">No lyrics</div>';
+    return;
+  }
+  // initial population: current line into top slot, next into bottom
+  if (ui.lyTop) drawTokensInto(ui.lyTop, (json.lines[0] && json.lines[0].words) ? json.lines[0].words : [], 0);
+  if (ui.lyBottom) ui.lyBottom.innerHTML = escJoin(json.lines[1]);
+  renderLyricsFull(json);
 }
 
-// Always update the current word’s progress, even if idx unchanged this frame
-if (wi >= 0 && ACTIVE_SPANS[wi]) {
-  var curSpan = ACTIVE_SPANS[wi];
-  curSpan.classList.add('cur');
-  curSpan.style.setProperty('--p', (prog * 100).toFixed(1) + '%');
-}}
+function repaintLyricsTri(now){
+  var json = lastLyrics;
+  if (!json || !json.lines || !json.lines.length) return;
+  var lines = json.lines;
+  var li = -1;
+  for (var i = 0; i < lines.length; i++) {
+    if (lines[i].main_time <= now) li = i; else break;
+  }
+
+  var topSlot = ui.lyTop, bottomSlot = ui.lyBottom;
+
+  function fillSlot(slot, line, isCurrent) {
+    if (!slot) return;
+    slot.className = 'karoLine' + (isCurrent ? ' current active' : ' upcoming');
+    slot.innerHTML = '';
+    if (!line) return;
+    var tokens = (line.words || []);
+    if (tokens.length) {
+      drawTokensInto(slot, tokens, now);
+    } else {
+      slot.textContent = line.text || escJoin(line) || '';
+    }
+  }
+
+  if (li < 0) {
+    if (topSlot) topSlot.innerHTML = '';
+    if (bottomSlot) bottomSlot.innerHTML = escJoin(lines[0]);
+    return;
+  }
+
+  var firstLine = lines[0];
+  var lastLine = lines[lines.length - 1];
+
+  // initialize toggles if missing
+  lyricsState.karoLineToggle = (lyricsState.karoLineToggle === undefined) ? 0 : lyricsState.karoLineToggle;
+  lyricsState.karoLastLineIndex = (lyricsState.karoLastLineIndex === undefined) ? -1 : lyricsState.karoLastLineIndex;
+
+  var currentLine = lines[li];
+  var nextLine = (li < lines.length - 1) ? lines[li + 1] : null;
+
+  // Toggle which DOM slot hosts the current line when the active line index changes,
+  // unless we're in 'split' alignment mode where top/bottom are fixed.
+  if (lyricsState.karoLastLineIndex !== li) {
+    // Toggle the hosting slot whenever the active line changes so current/upcoming
+    // continue to swap between the two DOM slots (preserving original behavior).
+    lyricsState.karoLineToggle = (lyricsState.karoLineToggle === 1) ? 0 : 1;
+    lyricsState.karoLastLineIndex = li;
+  }
+
+  // Use the toggle to decide which slot hosts the current line. CSS split rules
+  // will ensure `#lyTop` is left-most and `#lyBottom` is right-most, so swapping
+  // content between them preserves visual left/right placement.
+  var useToggle = (lyricsState.karoLineToggle || 0);
+  var curSlot = useToggle === 0 ? ui.lyTop : ui.lyBottom;
+  var nxtSlot = useToggle === 0 ? ui.lyBottom : ui.lyTop;
+
+  fillSlot(curSlot, currentLine, true);
+  fillSlot(nxtSlot, nextLine, false);
+}
 function updateLyricsView(now){ if(lyrMode==='tri'){repaintLyricsTri(now); return;} if(!lastLyrics||!lastLyrics.lines||!lastLyrics.lines.length) return; var lines=lastLyrics.lines; var li=-1; for(var i=0;i<lines.length;i++){if(lines[i].main_time<=now) li=i; else break;} if(li<0)return; var host=ui.lyFull; var el=host.children[li]; if(el){ el.classList.add('active'); var prev=host.querySelector('.active'); if(prev&&prev!==el) prev.classList.remove('active'); try{ el.scrollIntoView({block:'nearest',behavior:'smooth'});}catch(e){ el.scrollIntoView({block:'nearest'});} } lyricsState.idxLine=li; }
 function startLyricsClock(){cancelAnimationFrame(rafLyrics); (function t(){var cur=isPlaying?(ac.currentTime-songStart):0; updateLyricsView(cur); rafLyrics=requestAnimationFrame(t);})();}
 /*!
@@ -1429,7 +1574,6 @@ WM.init();
   
 }
 
-#lyWin.chrome-hidden #lyCountOverlay {}
 
 
 @keyframes fadeIn {
@@ -2612,7 +2756,7 @@ var APP_VERSION = <?php echo json_encode($APP_VERSION, JSON_UNESCAPED_SLASHES|JS
 })();
 </script>
 <script src="info_dock_karaoke_live_v1.0.0.js"></script>
-
+<script src="healing_toggle.js"></script>
 <script>
   // Wait until DOM is ready (the script is deferred, so DOM is loaded)
   const ui = healingFX.mount('#heal-toggle'); // if #heal-toggle isn't found, it falls back to <body>
@@ -2621,7 +2765,7 @@ var APP_VERSION = <?php echo json_encode($APP_VERSION, JSON_UNESCAPED_SLASHES|JS
 <script src="fx_engine.js"></script>
 <script src="fx_presets_config.js"></script>
 <script src="fx_panel.js"></script>
-<script src="tri_mode_smooth_scroll_inject_toggle_patch.js"></script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -2683,7 +2827,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7) Choose ONE initial effect (uncomment the one you want)
   // FXPresets.apply('rain_default');          // Rain (Thunder OFF), intensity from slider mapping
   // FXPresets.apply('fireworks_mobile');      // Fireworks @ 0.80 (mobile baseline)
-  FXPresets.auto();                            // Auto: Galaxy quiet if reduced-motion; 0.80 mobile / 0.85 desktop
+  // Auto-start FX only if the user previously enabled them in the panel
+  if (st && st.enabled) {
+    FXPresets.auto();                            // Auto: Galaxy quiet if reduced-motion; 0.80 mobile / 0.85 desktop
+  }
 });
 </script>
 
@@ -2697,7 +2844,7 @@ function openTool(url) {
   const wrapper = document.getElementById("iframe-overlay");
   wrapper.innerHTML = `
     <button onclick="closeTool()" style="position:absolute; top:10px; left:10px; z-index:10000; font-size:20px;">✖</button>
-    <iframe src="${url}" style="width:100%; height:100%; border:none;"</iframe>
+    <iframe src="${url}" style="width:100%; height:100%; border:none;"></iframe>
   `;
   wrapper.style.display = "block";
 }
@@ -2716,5 +2863,9 @@ document.addEventListener("keydown", function(e) {
   }
 });
 </script>
+
+
+
+
 </body>
 </html>
